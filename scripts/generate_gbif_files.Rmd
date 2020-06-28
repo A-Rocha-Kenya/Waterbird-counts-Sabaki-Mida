@@ -175,7 +175,7 @@ The dataset includes `r species.list.recorded %>% filter(taxon_rank=="Species") 
 ## Temporal coverage
 
 
-**Temporal range**: `{r} min(counts$date)` - `{r} max(counts$date)`
+**Temporal range**: `r min(counts$date)` - `r max(counts$date)`
 
 ```{r}
 for (s in c('Sabaki','Mida Creek')){

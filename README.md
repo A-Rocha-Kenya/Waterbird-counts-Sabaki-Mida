@@ -9,12 +9,13 @@ Raphaël Nussbaumer<sup>1</sup>, Kirao Lennox <sup>1</sup>, Colin Jackson <sup>1
 ---
 
 ## Data Licences
-This work is licensed under *a Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License*.
+This work is licensed under a *Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License*.
 
 
 ## Description
-Every months since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring waterbird at two key sites on the Coast of Kenya: Sabaki river mouth ([3°10'03.4"S 40°08'41.7"E](https://goo.gl/maps/RVFBvT526bkHLsTw5)) and Mida Creek ([3°20'07.2"S 39°58'26.4"E](https://goo.gl/maps/dRP9xsPXoa4EhNwp6)). 
+Every months since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring waterbird at two key sites on the Coast of Kenya: Sabaki river mouth ([3°10'03.4"S 40°08'41.7"E](https://goo.gl/maps/RVFBvT526bkHLsTw5)) and Mida Creek ([3°20'07.2"S 39°58'26.4"E](https://goo.gl/maps/dRP9xsPXoa4EhNwp6)) since 2000.
 
+***Table 1**: Summury statistics of the counts.*
 |site     |Mida Creek |Sabaki |
 |:--------|:----------|:------|
 |Number of surveys (events) |69         |90     |
@@ -22,29 +23,33 @@ Every months since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been mon
 |Number of observations    |1424       |3677   |
 |Number of individual seen    |236'758     |435'718 |
 
-The aim and objective
+**Aim and objective:**
 - Monitoring population
 - Assess short and long-term trend
 - Learn the seasonality pattern (phenology) (incl. migration timing),
 - Study the impact of climate change, habitat change
 
-link to other organism:
+**Link to other organism**:
 - International Waterbird Census (coordinated by Wetlands International) 
 - CWAC
 - the Ramsar Convention on Wetlands, 
 - and the Agreement on the Conservation of African-Eurasian Migratory Waterbirds (AEWA)
 
-type of data
-sampling event dataset
+**Type of data**
+[sampling event dataset](https://www.gbif.org/sampling-event-data)
 published as a standardized Darwin Core Archive
 
-Data strcture:
-- Event table: (a count)
-eventID, date and location of observation, and a short description of the sampling protocol, effort and conditions
+**Data strcture**
 
-- Occurance table (a observation)
-occurrenceID, the scientific name and higher classification of the observed species, the number of recorded individuals
+The metadata and data are generated with [a Rmarkdown file](scripts/generate_gbif_files.html)
 
+***Table 2**: Events (surveys) table structure.*
+|date       |type  |language |licence                                                    |rightsHolder  |ownerInstitutionCode |eventID       |samplingProtocol |sampleSizeValue |sampleSizeUnit |samplingEffort |eventDate  |eventTime |locationID |continent |country |countryCode |county |locality   | decimalLatitude| decimalLongitude|dynamicProperties|
+|:----------|:-----|:--------|:----------------------------------------------------------|:-------------|:--------------------|:-------------|:----------------|:---------------|:--------------|:--------------|:----------|:---------|:----------|:---------|:-------|:-----------|:------|:----------|---------------:|----------------:|:----------|
+
+***Table 3**: Occurences (counts) table structure.*
+|basisOfRecord    |eventID       |occurrenceID          | individualCount|taxonID |scientificName        |kingdom  |phylum   |class |takonRank |scientificNameAuthorship |vernacularName         |occurrenceRemarks |
+|:----------------|:-------------|:---------------------|---------------:|:-------|:---------------------|:--------|:--------|:-----|:---------|:------------------------|:----------------------|:-----------------|
 
 
 ## Geographic coverage
@@ -53,9 +58,9 @@ Located on the coast of Kenya, Sabaki River Mouth and Mida Creek represents key 
 
 [check IBA]
 
-![Figure 1](data/locations.png)
+[![Figure 1](data/locations.png)](data/locations.geojson)
 
-***Figure 1**: Map showing the path followed during the transect and the area covered by the count for Sabaki river mouth (north) and Mida Creek (South). This geospatial dataset is available in [this repository](data/locations.geojson).*
+***Figure 1**: Map showing the path followed during the transect and the area covered by the count for Sabaki river mouth (north) and Mida Creek (South). This geospatial dataset is available in [this repository](data/locations.geojson) as a geojson file.*
 
 
 ### Sabaki River Mouth
@@ -72,7 +77,7 @@ A series of high (up to c. 25 m) wind-blown sand dunes extend about five km nort
 
 
 ### Bounding box
--3.3495° to -3.1522° latitude, 39.9617° to 40.1525° longitude
+The bounding box is **-3.3495° to -3.1522° latitude** and **39.9617° to 40.1525° longitude**.
 
 
 ## Taxonomic coverage
@@ -83,7 +88,7 @@ Taxon are recorded at the species level with the exeption of the Heuglin's Gull 
 
 The extend of our dataset contains **107** species recorded and **9** other taxons (subspecies, family, slash etc.) belonging to **22** families.
 
-The `taxonID` used
+The `taxonID` used is [...]
 
 ### Taxonomic ranks
 
@@ -93,22 +98,21 @@ The `taxonID` used
 
 **Class**: *Aves* (birds)
 
-**Families**: *Scolopacidae* (Sandpipers and Allies), *Laridae* (Gulls, Terns and Skimmers), *Charadriidae* (Plovers and Lapwings), *NA* (NA), *Phoenicopteridae* (Flamingos), *Dromadidae* (Crab-plover), *Anatidae* (Ducks and Geese), *Glareolidae* (Coursers and Pratincoles), *Accipitridae* (Hawks, Vultures, Buzzards, Eagles and Allies), *Threskiornithidae* (Ibises and Spoonbills), *Ardeidae* (Herons, Egrets and Bitterns), *Ciconiidae* (Storks), *Pelecanidae* (Pelicans), *Recurvirostridae* (Stilts and Avocets), *Haematopodidae* (Oystercatchers), *Alcedinidae* (Kingfishers), *Burhinidae* (Thick-knees), *Phalacrocoracidae* (Cormorants), *Pandionidae* (Ospreys), *Rostratulidae* (Painted-snipes), *Balaenicipitidae* (Shoebill), *Jacanidae* (Jacanas), *Rallidae* (Rails, Crakes and Gallinules)
+**Families**: *Scolopacidae* (Sandpipers and Allies), *Laridae* (Gulls, Terns and Skimmers), *Charadriidae* (Plovers and Lapwings), *Phoenicopteridae* (Flamingos), *Dromadidae* (Crab-plover), *Anatidae* (Ducks and Geese), *Glareolidae* (Coursers and Pratincoles), *Accipitridae* (Hawks, Vultures, Buzzards, Eagles and Allies), *Threskiornithidae* (Ibises and Spoonbills), *Ardeidae* (Herons, Egrets and Bitterns), *Ciconiidae* (Storks), *Pelecanidae* (Pelicans), *Recurvirostridae* (Stilts and Avocets), *Haematopodidae* (Oystercatchers), *Alcedinidae* (Kingfishers), *Burhinidae* (Thick-knees), *Phalacrocoracidae* (Cormorants), *Pandionidae* (Ospreys), *Rostratulidae* (Painted-snipes), *Balaenicipitidae* (Shoebill), *Jacanidae* (Jacanas), *Rallidae* (Rails, Crakes and Gallinules)
 
 
 
 ## Temporal coverage
-figure data coverage
 
-1991-10-13 to 2013-03-31
+The temporal coverage is **1998-10-29 - 2020-06-13**.
 
 ![Figure 2](data/coverage_Sabaki.png)
 
-***Figure 2**: .*
+***Figure 2**: Coverage of the counts performed at Sabaki River Mouth per year and month. The colorscale indicate the number of species recorded in each counts.*
 
 ![Figure 3](data/coverage_Mida%20Creek.png)
 
-***Figure 3**: .*
+***Figure 3**: Coverage of the counts performed at Mida Creek per year and month. The colorscale indicate the number of species recorded in each counts.*
 
 
 ## Keywords
