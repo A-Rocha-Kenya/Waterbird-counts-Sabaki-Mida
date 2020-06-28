@@ -1,0 +1,324 @@
+---
+title: "Generate GBIF dataset: metadata, figures and tables"
+author: "Raphaël Nussbaumer"
+#date: `r Sys.Date()`
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(ggplot2)
+library(DT)
+library(jsonlite)
+library(leaflet)
+library(mapview)
+library(lubridate)
+library(RColorBrewer)
+library(rgdal)
+library(gridExtra)
+library(knitr)
+library(kableExtra)
+```
+
+## Introduction
+
+This script produces the information for the metadata (figures, tables and key numbers) and generate the `events.csv` and `occurances.csv` files in Darwin format for the publication of the [waterbird count data of Sabaki and Mida](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida) on GBIF (doi).
+
+
+### Load data
+
+The data are entered and stored in a excel spreadsheet alongside all other waterbird counts performed by [A Rocha Kenya]() since 1998. Here, we filter for the counts performed at Mida and Sabaki.
+
+Counts were also performed separably in a northern and southern transects. We combines/not used these counts here. 
+
+We also load `species.list` and `locations.list` from other sheets which contains more information on species and locations than the main `counts` table. 
+
+```{r}
+path = "C:/Users/rnussba1/OneDrive/ARK/ARK - Science/Water Bird Count/"
+
+counts <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Main", col_types = c("text", "numeric","text", "text", "date", "date", "date", "text","text","text","text","text","text","text","text")) %>%
+  mutate(site = ifelse(site=='Mida Creek (South)' | site=='Mida Creek (North)', 'Mida Creek', site)) %>% 
+  mutate(site = ifelse(site=='Sabaki (South)' | site=='Sabaki (North)', 'Sabaki', site)) %>% 
+  filter( site=='Sabaki' | site=='Mida Creek') %>% 
+  replace_na(list(quality="", coverage="", method="",water="",weather="",disturbed="", tidal="",participants="",comment=""))
+  
+species.list <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Species")
+
+locations.list <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Sites") %>% 
+  filter( site_name=='Sabaki' | site_name=='Mida Creek')
+
+participants.list <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Participant")
+
+```
+
+### Basic statistic
+
+We provide a basic description of the dataset with the following table
+
+```{r, echo=FALSE}
+counts %>% group_by(site) %>% 
+  summarise(
+   nbSurvey = n_distinct(date),
+   nbSpe = n_distinct(common_name),
+   nbObs = n(),
+   nbInd = sum(count)
+  )  %>% 
+  kable() %>% kable_styling() 
+  # t() %>% kable("markdown")
+```
+
+## Quality control
+
+
+### Assessement 2: Unique value per event
+```{r}
+counts %>% 
+  group_by(date, site) %>% 
+  summarise(disctinct_startdate = n_distinct(start_time),
+            disctinct_enddate = n_distinct(end_time),
+            disctinct_coverage = n_distinct(coverage),
+            disctinct_method = n_distinct(method),
+            disctinct_water = n_distinct(water),
+            disctinct_tidal = n_distinct(tidal),
+            disctinct_weather = n_distinct(weather),
+            disctinct_disturbed = n_distinct(disturbed),
+            disctinct_participants = n_distinct(participants),
+            disctinct_tidal = n_distinct(tidal)
+  ) %>%
+  select_if( function(.) max(.) > 1 )
+```
+
+### Assessement 3: Species validation correct
+```{r}
+counts %>% 
+  group_by(common_name) %>% 
+  summarise() %>% 
+  left_join(species.list, by="common_name") %>% 
+  filter( is.na(scientific_name) )
+```
+
+### Assessement 3: Specie and count
+
+Export pivot table for expert assessment of count
+
+## Dataset Description
+
+### Geographic coverage
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+geojson <- fromJSON(paste0(path,"Waterbird-counts-Sabaki-Mida/data/locations.geojson"))
+
+track = readOGR(paste0(path,"Waterbird-counts-Sabaki-Mida/data/locations.geojson"),require_geomType = "wkbLineString") %>% spTransform( CRS("+init=epsg:4326"))
+area = readOGR(paste0(path,"Waterbird-counts-Sabaki-Mida/data/locations.geojson"),require_geomType = "wkbPolygon")%>% spTransform( CRS("+init=epsg:4326"))
+
+m <- leaflet(width = "100%", height = "500px") %>% 
+  addTiles() %>% 
+  addPolygons(data=area,
+              stroke=geojson$features$properties$stroke[1],
+              weight=geojson$features$properties$`stroke-width`[1],
+              opacity=geojson$features$properties$`stroke-opacity`[1],
+              fillColor=geojson$features$properties$fill [1],
+              fillOpacity=geojson$features$properties$`fill-opacity`[1],
+              group = "Area of bird counted") %>% 
+  addPolylines(data=track,
+              color=geojson$features$properties$stroke[2],
+              weight=geojson$features$properties$`stroke-width`[2],
+              opacity=geojson$features$properties$`stroke-opacity`[2],
+              fillOpacity=geojson$features$properties$`fill-opacity`[2],
+              group = "Path followed during transect")
+
+m
+
+mapshot(m, file = paste0(path,"Waterbird-counts-Sabaki-Mida/data/locations.png"))
+
+```
+
+**Bounding box**: `r area@bbox`
+
+## Taxonomic coverage
+
+```{r}
+species.list.recorded <- counts %>% 
+  group_by(common_name) %>% 
+  summarise(
+    nbObs = n(), 
+    nbInd = sum(count)) %>% 
+  left_join(species.list, by="common_name") %>% 
+  arrange(desc(nbInd))
+
+species.list.recorded %>% kable() %>% kable_styling()
+```
+
+```{r}
+family.list.recorded <- species.list.recorded %>% 
+  group_by(family) %>% 
+  summarise(nbObs=n(), 
+            family_english=first(family_english),
+            nbSpecies = sum(nbObs),
+            nbInd = sum(nbInd)) %>% 
+  arrange(desc(nbInd))
+
+family.list.recorded %>% kable() %>% kable_styling()
+
+# gsub("\"","",family.list.recorded %>% 
+#  transmute(a=paste0('*',family,'* (',family_english,')')) %>% toString())
+
+# family.list.recorded$family_english
+
+```
+The dataset includes `r species.list.recorded %>% filter(taxon_rank=="Species") %>% nrow()` unique species and `r species.list.recorded %>% filter(taxon_rank!="Species") %>% nrow()` subspecies, families, slashs, etc. belonging to `{r} nrow(family.list.recorded)` families. 
+
+
+
+## Temporal coverage
+
+
+**Temporal range**: `{r} min(counts$date)` - `{r} max(counts$date)`
+
+```{r}
+for (s in c('Sabaki','Mida Creek')){
+dt <- counts  %>% 
+  filter( site==s) %>%  
+  group_by(date) %>% 
+  mutate(month=month(date), year = year(date)) %>% 
+  group_by(month, year) %>%
+  summarise(nb = n())
+
+p1<-ggplot(dt, aes(x = year, y = month, color= nb)) +
+  geom_point(size = 7, shape=15) +
+  scale_colour_gradientn(colours = brewer.pal(9, 'YlGnBu')) +
+  scale_y_continuous(breaks=1:12) +
+  scale_x_continuous(breaks=min(dt$year):max(dt$year)) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+p3<-ggplot(dt, aes(x=year)) + geom_histogram(bins=length(min(dt$year):max(dt$year))) + 
+  scale_x_continuous(breaks=min(dt$year):max(dt$year)) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+p2<-ggplot(dt, aes(x=month)) + geom_histogram(bins=12) + coord_flip() + 
+  scale_x_continuous(breaks=1:12)
+
+png(paste0(path,"Waterbird-counts-Sabaki-Mida/data/coverage_",s,".png"), width = 800, height = 400)
+grid.arrange(p1,p2,p3,layout_matrix = cbind(c(2,2,2,6), c(1,1,1,3), c(1,1,1,3), c(1,1,1,3)))
+dev.off()
+
+grid.arrange(p1,p2,p3,layout_matrix = cbind(c(2,2,2,6), c(1,1,1,3), c(1,1,1,3), c(1,1,1,3)))
+}
+
+  
+```
+## Content providers
+```{r}
+counts$participants %>% 
+  toString() %>% 
+  strsplit(",") %>% unlist() %>% trimws() %>% 
+  unique() %>% 
+  lapply(function(x) participants.list$Name[participants.list$Initial == x]) %>% 
+  unlist() %>% sort() %>% 
+  toString()
+```
+
+## Export in Darwin format
+
+
+### Export Event table
+```{r}
+
+events <- counts %>% 
+  group_by(date, site ) %>% 
+  summarise(start_time = first(start_time),
+            end_time = first(end_time),
+            coverage = first(coverage),
+            method = first(method),
+            water = first(water),
+            tidal = first(tidal),
+            weather = first(weather),
+            disturbed = first(disturbed),
+            participants = first(participants)
+  ) %>%
+  left_join(locations.list, by=c("site" = "site_name")) %>% 
+  transmute(
+    type = "Event",
+    language = "en",
+    licence = "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+    rightsHolder = "A Rocha Kenya",
+    ownerInstitutionCode = "ARK",
+    eventID = paste(sep="_", format(date,"%Y%m%d"), if_else(site=='Sabaki', "sabaki", "mida")),
+    samplingProtocol = 'Water Bird Count',
+    sampleSizeValue = difftime(end_time, start_time, units = "min"),
+    sampleSizeUnit = "minutes",
+    samplingEffort = coverage,
+    # sampleSizeValue = if_else(site=="Sabaki",3.40,6.06),
+    # sampleSizeUnit = "square kilometre",
+    eventDate = format(date,"%Y-%m-%d"),
+    eventTime = paste0(format(start_time,"%H:%M"),"/",format(end_time,"%H:%M")),
+    # eventRemarks = "",
+    locationID = if_else(site=='Sabaki', "sabaki", "mida"),
+    continent = "Africa",
+    # waterBody = if_else(site=='Sabaki', "http://www.geonames.org/197853/galana.html", "https://www.geonames.org/186759/mida-creek.html"),
+    country = "Kenya",
+    countryCode = "KE",
+    # stateProvince =" ",
+    county = "Kilifi",
+    # municipality = if_else(site=='Sabaki', "Sabaki", "Mida"),
+    locality = if_else(site=='Sabaki', "Sabaki River Mouth", "Mida Creek"),
+    #locationRemarks = description,
+    decimalLatitude = latitude,
+    decimalLongitude = longitude,
+    # geodeticDatum ="WGS84",
+    # footprintWKT = if_else(site=='Sabaki',"POLYGON ((40.1294906 -3.1562848,40.1303489 -3.1575917,40.1319797 -3.1595199,40.1333959 -3.1615125,40.1339323 -3.1633336,40.1359064 -3.1646619,40.1394469 -3.1666116,40.1413138 -3.1699325,40.1402194 -3.1725249,40.1405198 -3.1751601,40.1439531 -3.1781381,40.1459272 -3.1762956,40.1484377 -3.1710251,40.1524717 -3.1611482,40.1489527 -3.1582987,40.1466567 -3.158063,40.1454121 -3.1573882,40.1424188 -3.1545065,40.1388891 -3.1541208,40.1349408 -3.1522033,40.1327843 -3.1529264,40.1335032 -3.1564669,40.1344044 -3.1583844,40.133825 -3.1588772,40.132838 -3.1575274,40.1310784 -3.1552563,40.1294906 -3.1562848))", "POLYGON ((39.9635702 -3.3292204,39.9630981 -3.3312768,39.9632269 -3.333419,39.9617249 -3.3379175,39.9663168 -3.3422017,39.971767 -3.3402738,39.976123 -3.3452649,39.9780434 -3.349517,39.9885738 -3.3435459,39.9846846 -3.3381745,39.9832683 -3.3340188,39.9831825 -3.3328192,39.9836975 -3.3319195,39.9850279 -3.3301201,39.9862724 -3.3288776,39.9878603 -3.3264784,39.9900919 -3.324422,39.9880749 -3.3208231,39.9842983 -3.320866,39.9815517 -3.321123,39.9787622 -3.3212516,39.975844 -3.3218514,39.9724966 -3.3228796,39.9697929 -3.3240364,39.9676901 -3.3256216,39.9654585 -3.3266498,39.9644714 -3.3272068,39.9638277 -3.3283635,39.9635702 -3.3292204))"),
+    #georeferencedBy = "Raphaël Nussbaumer",
+    #georeferencedDate = "03/06/2020",
+    #georeferenceSources = "https://www.geonames.org/ | https://www.google.co.ke/maps/",
+    #georeferenceVerificationStatus = "verified by curator",
+    #georeferenceRemarks = "",
+    dynamicProperties = paste0("{",
+      'coverage: "',coverage,'", ',
+      'water: "',water,'", ',
+      'tidal: "',tidal,'", ',
+      'weather: "',weather,'", ',
+      'disturbed: "',disturbed,'", ',
+      'participants: "',participants,'", ',
+      'CWAC_sitecode: "',CWAC_reference,'", ',
+      'IBA_sitecode: "',IBA,'", ',
+      "}"
+    ),
+    )
+
+events %>% head() %>%  kable() %>% kable_styling()
+```
+
+### Export occurance table
+```{r}
+occurences <- counts %>% 
+  left_join(species.list, by="common_name") %>% 
+  transmute(
+    basisOfRecord = "HumanObservation",
+    eventID = paste(sep="_", format(date,"%Y%m%d"), if_else(site=='Sabaki', "sabaki", "mida")),
+    occurrenceID = paste(sep="_",eventID, taxon_id),
+    individualCount = count,
+    # organismQuantity = count,
+    # organismQuantityType = "individu",
+    # occurrenceStatus = "present",
+    taxonID = taxon_id,
+    scientificName = scientific_name,
+    kingdom = "Animalia",
+    phylum = "Chordata",
+    class = "Aves",
+    takonRank = taxon_rank,
+    scientificNameAuthorship = "",
+    vernacularName = common_name,
+    occurrenceRemarks = paste0(quality," | ", comment),
+      )
+
+occurences %>% head() %>%  kable() %>% kable_styling()
+```
+
+## Write to Excel
+```{r}
+write.csv(events, file = paste0(path,"data/events.csv"), 
+          na = "", row.names = FALSE, fileEncoding = "UTF-8")
+
+write.csv(occurences, file = paste0(path,"data/occurences"), 
+          na = "", row.names = FALSE, fileEncoding = "UTF-8")
+```
