@@ -29,21 +29,43 @@ This script produces the information for the metadata (figures, tables and key n
 
 ### Load data
 
-The data are entered and stored in a excel spreadsheet alongside all other waterbird counts performed by [A Rocha Kenya]() since 1998. Here, we filter for the counts performed at Mida and Sabaki.
+The data are entered and stored in a excel spreadsheet alongside all other waterbird counts performed by [A Rocha Kenya](https://www.arocha.or.ke/) since 1998. Here, we filter for the counts performed at Mida and Sabaki.
 
-Counts were also performed separably in a northern and southern transects. We combines/not used these counts here. 
+At Sabaki, some counts were performed in two teams on each side of the river (north-south). Here, we sums these counts. 
 
 We also load `species.list` and `locations.list` from other sheets which contains more information on species and locations than the main `counts` table. 
 
 ```{r}
-path = "C:/Users/rnussba1/OneDrive/ARK/ARK - Science/Water Bird Count/"
+path = "C:/Users/rnussba1/OneDrive/ARK/ARK - Science/04. Water Bird Count/"
 
-counts <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Main", col_types = c("text", "numeric","text", "text", "date", "date", "date", "text","text","text","text","text","text","text","text")) %>%
-  mutate(site = ifelse(site=='Mida Creek (South)' | site=='Mida Creek (North)', 'Mida Creek', site)) %>% 
-  mutate(site = ifelse(site=='Sabaki (South)' | site=='Sabaki (North)', 'Sabaki', site)) %>% 
-  filter( site=='Sabaki' | site=='Mida Creek') %>% 
+countst <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Main", col_types = c("text", "numeric","text", "text", "date", "date", "date", "text","text","text","text","text","text","text","text")) %>%
+  filter( site=='Sabaki' | site=='Mida Creek' | site=='Sabaki (South)' | site=='Sabaki (North)') %>% 
   replace_na(list(quality="", coverage="", method="",water="",weather="",disturbed="", tidal="",participants="",comment=""))
-  
+
+counts <- countst %>% 
+  filter(date<"2004-02-02" & date>"2004-02-01") %>% 
+  filter(site=='Sabaki (South)' | site=='Sabaki (North)') %>% 
+  group_by(date) %>% 
+  mutate(start_time = min(start_time),
+            end_time = max(end_time)) %>% 
+  group_by(common_name,date) %>%
+  summarise(count = sum(count),
+            quality= first(quality), 
+            site = 'Sabaki', 
+            start_time = min(start_time),
+            end_time = max(end_time),
+            coverage = first(coverage),
+            method = first(method),
+            water = first(water),
+            tidal = first(tidal),
+            weather = first(weather),
+            disturbed = first(disturbed),
+            participants = first(participants),
+            comment = first(comment),
+            .groups = 'drop') %>% 
+  full_join(countst %>% filter(site=='Sabaki'| site=='Mida Creek' ),
+            by = c("date", "common_name", "count", "quality", "site", "start_time", "end_time", "coverage", "method", "water", "tidal", "weather", "disturbed", "participants", "comment"))
+
 species.list <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Species")
 
 locations.list <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Sites") %>% 
@@ -76,8 +98,8 @@ counts %>% group_by(site) %>%
 ```{r}
 counts %>% 
   group_by(date, site) %>% 
-  summarise(disctinct_startdate = n_distinct(start_time),
-            disctinct_enddate = n_distinct(end_time),
+  summarise(disctinct_starttime = n_distinct(start_time),
+            disctinct_endtime = n_distinct(end_time),
             disctinct_coverage = n_distinct(coverage),
             disctinct_method = n_distinct(method),
             disctinct_water = n_distinct(water),
@@ -86,15 +108,15 @@ counts %>%
             disctinct_disturbed = n_distinct(disturbed),
             disctinct_participants = n_distinct(participants),
             disctinct_tidal = n_distinct(tidal)
-  ) %>%
-  select_if( function(.) max(.) > 1 )
+  , .groups = 'drop') %>%
+  filter(rowSums( .> 1) > 2 )
 ```
 
 ### Assessement 3: Species validation correct
 ```{r}
 counts %>% 
   group_by(common_name) %>% 
-  summarise() %>% 
+  summarise(.groups = 'drop') %>% 
   left_join(species.list, by="common_name") %>% 
   filter( is.na(scientific_name) )
 ```
@@ -144,11 +166,11 @@ species.list.recorded <- counts %>%
   group_by(common_name) %>% 
   summarise(
     nbObs = n(), 
-    nbInd = sum(count)) %>% 
+    nbInd = sum(count), .groups = 'drop') %>% 
   left_join(species.list, by="common_name") %>% 
   arrange(desc(nbInd))
 
-species.list.recorded %>% kable() %>% kable_styling()
+species.list.recorded %>% head() %>% kable() %>% kable_styling()
 ```
 
 ```{r}
@@ -157,10 +179,10 @@ family.list.recorded <- species.list.recorded %>%
   summarise(nbObs=n(), 
             family_english=first(family_english),
             nbSpecies = sum(nbObs),
-            nbInd = sum(nbInd)) %>% 
+            nbInd = sum(nbInd), .groups = 'drop') %>% 
   arrange(desc(nbInd))
 
-family.list.recorded %>% kable() %>% kable_styling()
+family.list.recorded %>% head() %>% kable() %>% kable_styling()
 
 # gsub("\"","",family.list.recorded %>% 
 #  transmute(a=paste0('*',family,'* (',family_english,')')) %>% toString())
@@ -184,7 +206,7 @@ dt <- counts  %>%
   group_by(date) %>% 
   mutate(month=month(date), year = year(date)) %>% 
   group_by(month, year) %>%
-  summarise(nb = n())
+  summarise(nb = n(), .groups="drop")
 
 p1<-ggplot(dt, aes(x = year, y = month, color= nb)) +
   geom_point(size = 7, shape=15) +
@@ -234,13 +256,14 @@ events <- counts %>%
             tidal = first(tidal),
             weather = first(weather),
             disturbed = first(disturbed),
-            participants = first(participants)
+            participants = first(participants), 
+            .groups="drop",
   ) %>%
   left_join(locations.list, by=c("site" = "site_name")) %>% 
   transmute(
     type = "Event",
     language = "en",
-    licence = "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+    license = "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
     rightsHolder = "A Rocha Kenya",
     ownerInstitutionCode = "ARK",
     eventID = paste(sep="_", format(date,"%Y%m%d"), if_else(site=='Sabaki', "sabaki", "mida")),
@@ -305,7 +328,7 @@ occurences <- counts %>%
     kingdom = "Animalia",
     phylum = "Chordata",
     class = "Aves",
-    takonRank = taxon_rank,
+    taxonRank = taxon_rank,
     scientificNameAuthorship = "",
     vernacularName = common_name,
     occurrenceRemarks = paste0(quality," | ", comment),
@@ -316,9 +339,9 @@ occurences %>% head() %>%  kable() %>% kable_styling()
 
 ## Write to Excel
 ```{r}
-write.csv(events, file = paste0(path,"data/events.csv"), 
+write.csv(events, file = paste0(path,"Waterbird-counts-Sabaki-Mida/data/events.csv"), 
           na = "", row.names = FALSE, fileEncoding = "UTF-8")
 
-write.csv(occurences, file = paste0(path,"data/occurences"), 
+write.csv(occurences, file = paste0(path,"Waterbird-counts-Sabaki-Mida/data/occurences.csv"), 
           na = "", row.names = FALSE, fileEncoding = "UTF-8")
 ```

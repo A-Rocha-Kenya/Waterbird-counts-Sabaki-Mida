@@ -15,37 +15,36 @@ This work is licensed under a *Creative Commons Attribution Non Commercial (CC-B
 ## Description
 Every months since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring waterbird at two key sites on the Coast of Kenya: Sabaki river mouth ([3°10'03.4"S 40°08'41.7"E](https://goo.gl/maps/RVFBvT526bkHLsTw5)) and Mida Creek ([3°20'07.2"S 39°58'26.4"E](https://goo.gl/maps/dRP9xsPXoa4EhNwp6)) since 2000.
 
-***Table 1**: Summury statistics of the counts.*
+***Table 1**: Summary  statistics of the counts.*
 |site     |Mida Creek |Sabaki |
 |:--------|:----------|:------|
-|Number of surveys (events) |69         |90     |
-|Number of Species Recorded    |73         |105    |
-|Number of observations    |1424       |3677   |
-|Number of individual seen    |236'758     |435'718 |
+|Number of surveys (events) |86         |96     |
+|Number of Species Recorded    |78         |105    |
+|Number of observations    |1'782       |3'539   |
+|Number of individual seen    |265'402     |402'184 |
 
 **Aim and objective:**
-- Monitoring population
-- Assess short and long-term trend
-- Learn the seasonality pattern (phenology) (incl. migration timing),
-- Study the impact of climate change, habitat change
+- Monitoring waterbird population at this two keys migratory stopover site and wintering site. 
+- Assess short and long-term trend of waders. 
+- Learn seasonality patterns in arrival and departure,
+- Study the impact of climate change, habitat change, habitat change, human disturbance.
 
 **Link to other organism**:
-- International Waterbird Census (coordinated by Wetlands International) 
-- CWAC
-- the Ramsar Convention on Wetlands, 
-- and the Agreement on the Conservation of African-Eurasian Migratory Waterbirds (AEWA)
+- [International Waterbird Census](http://iwc.wetlands.org/) (coordinated by [Wetlands International](https://www.wetlands.org/)) 
+- [Coordinated Waterbird Counts (CWAC)](http://cwac.birdmap.africa/)
+- [the Ramsar Convention on Wetlands](https://www.ramsar.org/), 
+- [the Agreement on the Conservation of African-Eurasian Migratory Waterbirds (AEWA)](https://www.unep-aewa.org/)
 
 **Type of data**
-[sampling event dataset](https://www.gbif.org/sampling-event-data)
-published as a standardized Darwin Core Archive
+This dataset is published as a [Darwin Core Archive](https://dwc.tdwg.org/) using a [sampling event dataset](https://www.gbif.org/sampling-event-data) type.
 
-**Data strcture**
+**Data structure**
 
-The metadata and data are generated with [a Rmarkdown file](scripts/generate_gbif_files.html)
+The metadata and data are generated with [a Rmarkdown file](scripts/generate_gbif_files.html) based on the spreadsheet used to entered data. This script produces two table file: [`events.csv`](data/events.csv) records informations related to the overall surveys and [`occurences.csv`](data/occurences.csv) contains information about the individual counts. 
 
 ***Table 2**: Events (surveys) table structure.*
-|date       |type  |language |licence                                                    |rightsHolder  |ownerInstitutionCode |eventID       |samplingProtocol |sampleSizeValue |sampleSizeUnit |samplingEffort |eventDate  |eventTime |locationID |continent |country |countryCode |county |locality   | decimalLatitude| decimalLongitude|dynamicProperties|
-|:----------|:-----|:--------|:----------------------------------------------------------|:-------------|:--------------------|:-------------|:----------------|:---------------|:--------------|:--------------|:----------|:---------|:----------|:---------|:-------|:-----------|:------|:----------|---------------:|----------------:|:----------|
+|type  |language |license  |rightsHolder  |ownerInstitutionCode |eventID |samplingProtocol |sampleSizeValue |sampleSizeUnit |samplingEffort |eventDate  |eventTime |locationID |continent |country |countryCode |county |locality   | decimalLatitude| decimalLongitude|dynamicProperties|
+|:-----|:--------|:----------------------------------------------------------|:-------------|:--------------------|:-------------|:----------------|:---------------|:--------------|:--------------|:----------|:---------|:----------|:---------|:-------|:-----------|:------|:----------|---------------:|----------------:|:----------|
 
 ***Table 3**: Occurences (counts) table structure.*
 |basisOfRecord    |eventID       |occurrenceID          | individualCount|taxonID |scientificName        |kingdom  |phylum   |class |takonRank |scientificNameAuthorship |vernacularName         |occurrenceRemarks |
@@ -55,8 +54,7 @@ The metadata and data are generated with [a Rmarkdown file](scripts/generate_gbi
 ## Geographic coverage
 
 Located on the coast of Kenya, Sabaki River Mouth and Mida Creek represents key hotspot for waterbird, specially for wintering and migrating waders. 
-
-[check IBA]
+[to be written: general context on the coast, ecoregion]
 
 [![Figure 1](data/locations.png)](data/locations.geojson)
 
@@ -64,6 +62,8 @@ Located on the coast of Kenya, Sabaki River Mouth and Mida Creek represents key 
 
 
 ### Sabaki River Mouth
+IBA: [6409](http://datazone.birdlife.org/site/factsheet/6409)
+
 Sabaki River Mouth is where the Athi-Galana-Sabaki river system empties into the Indian Ocean some 5 km north of Malindi. Due to the combined action of ocean currents and freshwater flow from the highlands bringing high levels of silt, a diverse array of habitats have been formed. These include open sandy beach, sandbanks, mudflats, salt marsh, vegetated and bare sand dunes, seasonal and permanent fresh water pools, mangroves, grassland and coastal scrub. Since the mid-1970s a high level of silt deposition has taken place that has extended the river mouth into the ocean and created the wide, open mud and sand flats which are the key attraction for large numbers of waders. Until c. 2000 there was only some degraded patches of mangrove forest slightly upstream. With the siltation, however, conditions became ideal for mangroves to become established and an area of over 12 ha of mangrove forest has grown on the northern banks of the river mouth. Seasonal wetlands form during seasons of good rain on the extension of low sand dunes between the beach and the old, high sand dunes and provide breeding habitat for some birds such as Black-winged Stilts. The sandflats and beach are regularly used as a roost for often large numbers of gulls and terns which forage out at sea and come to the relative safety of the river mouth to rest.
 
 A series of high (up to c. 25 m) wind-blown sand dunes extend about five km north and three km south of the river. These dunes form an important aquifer and as a result among the dunes are pools and wells of fresh water filtered by the sand and separ
@@ -73,8 +73,9 @@ A series of high (up to c. 25 m) wind-blown sand dunes extend about five km nort
 
 
 ### Mida Creek
-[to be written]
-
+IBA: [6406](http://datazone.birdlife.org/site/factsheet/6406)
+[to be written: CJ]
+high diversity of mangrove forests species and fish species
 
 ### Bounding box
 The bounding box is **-3.3495° to -3.1522° latitude** and **39.9617° to 40.1525° longitude**.
@@ -82,13 +83,14 @@ The bounding box is **-3.3495° to -3.1522° latitude** and **39.9617° to 40.15
 
 ## Taxonomic coverage
 
-Ramsar Convention on Wetlands defined waterbird as any "species of bird that are ecologically dependent on wetlands". This term is further precised in the second edition of Waterfowl Population Estimates, as all species of the families Gaviidae, Podicipedidae, Pelecanidae, Phalacrocoracidae, Anhingidae, Ardeidae, Balaenicipitidae, Scopidae, Ciconiidae, Threskiornithidae, Phoenicopteridae, Anhimidae, Anatidae, Pedionomidae, Gruidae, Aramidae, Rallidae, Heliornithidae, Eurypygidae, Jacanidae, Rostratulidae, Dromadidae, Haematopodidae, Ibidorhynchidae, Recurvirostridae, Burhinidae, Glareolidae, Charadriidae, Scolopacidae, Thinocoridae, Laridae, Sternidae and Rynchopidae.
+The Ramsar Convention on Wetlands defined waterbird as any "species of bird that are ecologically dependent on wetlands". This term is further precised in the second edition of Waterfowl Population Estimates, as all species of the families Gaviidae, Podicipedidae, Pelecanidae, Phalacrocoracidae, Anhingidae, Ardeidae, Balaenicipitidae, Scopidae, Ciconiidae, Threskiornithidae, Phoenicopteridae, Anhimidae, Anatidae, Pedionomidae, Gruidae, Aramidae, Rallidae, Heliornithidae, Eurypygidae, Jacanidae, Rostratulidae, Dromadidae, Haematopodidae, Ibidorhynchidae, Recurvirostridae, Burhinidae, Glareolidae, Charadriidae, Scolopacidae, Thinocoridae, Laridae, Sternidae and Rynchopidae.
 
-Taxon are recorded at the species level with the exeption of the Heuglin's Gull (*larus fuscus heuglini*) and Baltic Gull (*larus fuscus fuscus*). During some counts, specie level was possible, and the identification was done as slash (two species e.g. Lesser/Greater Sand Plover), genus, family, order or even as *Aves sp.*.
+Taxon are recorded at the species level with the exeption of the Heuglin's Gull (*larus fuscus heuglini*) and Baltic Gull (*larus fuscus fuscus*). During some counts, specie level was possible, and the identification was done as slash (e.g. Lesser/Greater Sand Plover), genus, family, order or even as *Aves sp.*.
 
-The extend of our dataset contains **107** species recorded and **9** other taxons (subspecies, family, slash etc.) belonging to **22** families.
+The extend of our dataset contains **107** species recorded and **6** other taxons (subspecies, family, slash etc.) belonging to **22** families.
 
-The `taxonID` used is [...]
+The `taxonID` used is the species code from the [eBird/Clements Checklist of Birds of the World: v2019](https://www.birds.cornell.edu/clementschecklist/download/)
+
 
 ### Taxonomic ranks
 
@@ -104,7 +106,7 @@ The `taxonID` used is [...]
 
 ## Temporal coverage
 
-The temporal coverage is **1998-10-29 - 2020-06-13**.
+The temporal coverage is **1998-10-29 - 2020-09-16**.
 
 ![Figure 2](data/coverage_Sabaki.png)
 
@@ -119,13 +121,30 @@ The temporal coverage is **1998-10-29 - 2020-06-13**.
 bird, waterbird, [...]
 
 ## Associated parties
-- [International Waterbird Census](https://www.wetlands.org/our-approach/healthy-wetland-nature/international-waterbird-census/) (coordinated by [Wetlands International](https://www.wetlands.org/)) 
-- [Coordinated Waterbird Counts (CWAC)](http://cwac.birdmap.africa/#)
+
+[Possible Role:
+Author
+Content Provider
+Custodian Steward	
+Distributor	
+Editor
+Metadata Provider
+Originator
+Owner
+Point Of Contact
+Principal Investigator
+Processor
+Publisher
+User	
+Programmer
+Curator
+]
+
 
 ### Content providers
 
 The counts are organized by A Rocha Kenya. 
-The (incompmlete) list of participants includes: Alasdair Lindop, Alber Baya, Alex Mwalim, Ameline Nussbaumer, Amina simba, Andrew Kinzer, Apolloh James, Chris Halliwell, Colin Jackson, Dixon, Edwin, Francis Kazungu, Frank, Freshly Tsofa, Israel Lemako, Jan Van Beck, Job Aben, Joseph Ojuja, Judith Adhiambo, Juma Badi, Kate England, Kibwana Ali, Kirao Lennox, Lynton Baird, Melisa, Michael Kadenge, Monica Njambi, Mustafa Adamjee, Patrick Kaingu, Raphaël Nussbaumer, Rehema, Saddam Kailo, Salim Abdallah, Sam Oldland, Sammy Kenga, Samuel Mwen, Ted Nanninga, Timothy Mweri.
+The (incompmlete) list of participants includes: Alasdair Lindop, Alber Baya, Alex Mwalim, Ameline Nussbaumer, Amina simba, Andrew Kinzer, Apolloh James, Benjamin Suluby, Chris Halliwell, Colin Jackson, Daniel Kazungu, Dena Elijah, Dixon, Edwin, Eric Thuranira, Erick Karisa Menza, Francis Kazungu, Frank, Freshly Tsofa, Harry Mjambili, Hilary Mwachia, Israel Lemako, Jan Van Beck, Job Aben, Jonathan Furaha, Joseph Ojuja, Judith Adhiambo, Juma Badi, Kate England, Kibwana Ali, Kirao Lennox, Kirao Mwari, Lydia Kayaa, Lynton Baird, Marissa, Martilda Munga, Melisa, Michael Kadenge, Monica Njambi, Mustafa Adamjee, Patrick Kaingu, Pauline Kasungu, Peter Musembi, Peter Ndurya, Raphaël Nussbaumer, Rehema, Saddam Kailo, Salim Abdallah, Sam Oldland, Sammy Kenga, Samuel Mwen, Ted Nanninga, Timothy mweri.
 
 
 
@@ -139,14 +158,10 @@ Waterbird counts
 ### Description
 
 ### Funding
-This monitoring project receives funding from the Flemish Government.
 
 ### Study Area Description
 
 ### Design Description
-
-
-
 
 
 
@@ -163,7 +178,7 @@ scopes, number fo people, writting in notebook and converting to excel spreasdsh
 R script?
 
 ### Step Description
-
+https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/scripts/generate_gbif_files
 
 
 
@@ -171,19 +186,15 @@ R script?
 ## Citations
 
 ### Citations
-Lennox K., Jackson C., Nussbaumer R. Monthly waterbird count: Sabaki River Mouth and Mida Creek. 
-
-
-
-### Bibliographic Citations
-
-- Agreement on the Conservation of African-Eurasian Migratory Waterbirds (AEWA) http://www.unep-aewa.org/
-- Ramsar Convention on Wetlands http://www.ramsar.org/
-- ???
+[auto generated]
 
 
 ## External Links
 - Github: https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida
-- Shiny App: 
+- Script: https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/scripts/generate_gbif_files
+- Shiny App: https://rafnuss.shinyapps.io/water_bird_count/
+
 
 ## Additional Metadata
+
+*Date created:* 2020-10-03
