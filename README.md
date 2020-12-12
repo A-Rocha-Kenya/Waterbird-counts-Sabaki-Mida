@@ -13,7 +13,7 @@ This work is licensed under a *Creative Commons Attribution Non Commercial (CC-B
 
 
 ## Description
-Every month since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring waterbirds at two key sites on the coast of Kenya: Sabaki River Mouth ([3°10'03.4"S 40°08'41.7"E](https://goo.gl/maps/RVFBvT526bkHLsTw5)) and Mida Creek ([3°20'07.2"S 39°58'26.4"E](https://goo.gl/maps/dRP9xsPXoa4EhNwp6)) since 2000.
+Every month since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring waterbirds at two key sites on the coast of Kenya: Sabaki River Mouth ([3°10'03.4"S 40°08'41.7"E](https://goo.gl/maps/RVFBvT526bkHLsTw5)) and Mida Creek ([3°20'07.2"S 39°58'26.4"E](https://goo.gl/maps/dRP9xsPXoa4EhNwp6)).
 
 ***Table 1**: Summary of count statistics.*
 
@@ -26,8 +26,8 @@ Every month since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been moni
  
 **Purpose:**
 - Monitoring waterbird population at these two key migratory stopover and wintering sites
-- Assess short- and long-term trends of waders
-- Learn about seasonality patterns in arrival and departure
+- Assess short- and long-term trends of wader populations
+- Learn about seasonality patterns in arrival and departure dates
 - Study the impact of climate change, habitat change, human disturbance
 
 **Links to other organisations**:
@@ -61,39 +61,6 @@ The metadata and data are generated with [a Rmarkdown file](scripts/generate_gbi
 ## Geographic coverage
 
 Located on the coast of Kenya, Sabaki River Mouth and Mida Creek represent key hotspots for waterbirds, especially for wintering and migrating waders. 
-
-[![Figure 1](data/locations.png)](data/locations.geojson)
-
-***Figure 1**: Map showing the path followed during the transect and the area covered for the count in Sabaki River Mouth (North) and Mida Creek (South). This geospatial dataset is available in [this repository](data/locations.geojson) as a geojson file.*
-
-
-### Sabaki River Mouth
-
-![Sabaki-satellite](data/Sabaki_satellite.jpg)
-
-**IBA**: [6409](http://datazone.birdlife.org/site/factsheet/6409)
-
-Sabaki River Mouth is where the Athi-Galana-Sabaki river system flows into the Indian Ocean some 5 km north of Malindi. Due to the combined action of ocean currents and freshwater flow from the highlands bringing high levels of silt, a diverse array of habitats have been formed. These include open an sandy beach, sandbanks, mudflats, salt marshes, vegetated and bare sand dunes, seasonal and permanent fresh water pools, mangroves, grassland and coastal scrub. Since the mid-1970s a high level of silt deposition has taken place that has extended the river mouth into the ocean and created the wide, open mud and sand flats which are the key attraction for large numbers of waders. Until c. 2000, there was only some degraded patches of mangrove forest slightly upstream. With the siltation, however, conditions have become ideal for mangroves, and an area of over 12 ha of mangrove forest has grown on the northern banks of the river mouth. Seasonal wetlands form during seasons of good rain on the extension of low sand dunes between the beach and the old, high sand dunes and provide breeding habitat for some birds such as Black-winged Stilts. The sandflats and beach are regularly used as a roost for large numbers of gulls and terns which forage out at sea and come to the relative safety of the river mouth to rest.
-
-A series of high (up to c. 25 m) wind-blown sand dunes extend about five km north and three km south of the river. These dunes form an important aquifer and as a result among the dunes are pools and wells of fresh water filtered by the sand and separate from the ocean.
-
-"Sabaki" is the name of the final few kilometres of the river that starts in the Ngong Hills west of Nairobi as the Athi River and is known as the Galana River through Ukambani and Tsavo East National Park.
-
-![Figure 2](data/Sabaki1984-2016.gif)
-***Figure 2**: Animated map showing the evolution of the Sabaki Delta Estuary from 1984 to 2016.*
-
-![Figure 3](data/Sabaki2016-2020.mp4)
-***Figure 3**: High resolution animated map showing the monthly evolution of the Sabaki Delta Estuary from 2016-2020.*
-
-### Mida Creek
-
-![Mida-satellite](data/Mida_satellite.jpg)
-
-**IBA**: [6406](http://datazone.birdlife.org/site/factsheet/6406)
-high diversity of mangrove forests species and fish species
-
-Mida creek is a biologically important and complex tidal marine multi-habitat ecosystem supporting the adjacent local communities by providing foods, building materials and tourism revenues (Weru et al., 2000). The total intertidal area of this marine inlet is approximately 580 ha.: there is minimal freshwater inflow. The majority of the Creek is fringed with a diverse assemblage of mangrove species including *Ceriops tagal, Rhizophora rnucronata, Bruguiera gyrnnorrhiza, Avicennia marina, Sonneratia alba* and *Xylocarpus benadirensis*. The site is disturbed by artisanal fishermen, both for fishing and bait-collecting, and by groups of tourists brought into the creek by boat. Disturbance levels are not, however, high enough to have a major detectable influence on the foraging behaviour of waders (Hockey et al. 1996). The major problems in the creek will be the negative knock-on effects within the ecosystem of over-fishing and exploitation of the marine environment and mangrove forests. Mangrove roots are frequently cut and mud dug up in order to reach fishing bait which clearly destabilises the mangroves and threatens their survival (Jackson, The Birds of Mida Creek).
-Mida Creek is an important passage and wintering area for Palaearctic migrant waders, with counts of over 8,000 waders. The populations of Greater and Lesser Sandplover and Crab-plovers here are internationally important. The creek is a significant feeding area for Dimorphic Egrets, Lesser Crested and a resident though non-breeding population of Greater Flamingo. Other common migrant shorebirds here include Sanderling, Curlew Sandpiper, Little Stint, Terek Sandpiper, Whimbrel, Grey Plover, and Greenshank (Jackson, The Birds of Mida Creek).
 
 ### Bounding box
 The bounding box is **-3.3495° to -3.1522°** latitude and **39.9617° to 40.1525°** longitude.
@@ -149,36 +116,51 @@ The (incomplete) list of participants includes: Alasdair Lindop, Albert Baya, Al
 
 
 
-## Project data
-
-### Project title
-Waterbird counts 
-
-### Identifier
-
-### Description
-
-### Funding
-
-### Study Area Description
-
-### Design Description
-
-
-
 
 ## Sampling Methods
 
 ### Study extent
 
+[![Figure 1](data/locations.png)](data/locations.geojson)
+
+***Figure 1**: Map showing the path followed during the transect and the area covered for the count in Sabaki River Mouth (North) and Mida Creek (South). This geospatial dataset is available in [this repository](data/locations.geojson) as a geojson file.*
+
+**Sabaki River Mouth**
+
+![Sabaki-satellite](data/Sabaki_satellite.jpg)
+
+**IBA**: [6409](http://datazone.birdlife.org/site/factsheet/6409)
+
+Sabaki River Mouth is where the Athi-Galana-Sabaki river system flows into the Indian Ocean some 5 km north of Malindi. Due to the combined action of ocean currents and freshwater flow from the highlands bringing high levels of silt, a diverse array of habitats have been formed. These include open an sandy beach, sandbanks, mudflats, salt marshes, vegetated and bare sand dunes, seasonal and permanent fresh water pools, mangroves, grassland and coastal scrub. Since the mid-1970s a high level of silt deposition has taken place that has extended the river mouth into the ocean and created the wide, open mud and sand flats which are the key attraction for large numbers of waders. Until c. 2000, there was only some degraded patches of mangrove forest slightly upstream. With the siltation, however, conditions have become ideal for mangroves, and an area of over 12 ha of mangrove forest has grown on the northern banks of the river mouth. Seasonal wetlands form during seasons of good rain on the extension of low sand dunes between the beach and the old, high sand dunes and provide breeding habitat for some birds such as Black-winged Stilts. The sandflats and beach are regularly used as a roost for large numbers of gulls and terns which forage out at sea and come to the relative safety of the river mouth to rest.
+
+A series of high (up to c. 25 m) wind-blown sand dunes extend about five km north and three km south of the river. These dunes form an important aquifer and as a result among the dunes are pools and wells of fresh water filtered by the sand and separate from the ocean.
+
+"Sabaki" is the name of the final few kilometres of the river that starts in the Ngong Hills west of Nairobi as the Athi River and is known as the Galana River through Ukambani and Tsavo East National Park.
+
+![Figure 2](data/Sabaki1984-2016.gif)
+***Figure 2**: Animated map showing the evolution of the Sabaki Delta Estuary from 1984 to 2016.*
+
+![Figure 3](data/Sabaki2016-2020.mp4)
+***Figure 3**: High resolution animated map showing the monthly evolution of the Sabaki Delta Estuary from 2016-2020.*
+
+**Mida Creek**
+
+![Mida-satellite](data/Mida_satellite.jpg)
+
+**IBA**: [6406](http://datazone.birdlife.org/site/factsheet/6406)
+
+Mida creek is a biologically important and complex tidal marine multi-habitat ecosystem supporting the adjacent local communities by providing foods, building materials and tourism revenues (Weru et al., 2000). The total intertidal area of this marine inlet is approximately 580 ha.: there is minimal freshwater inflow. The majority of the Creek is fringed with a diverse assemblage of mangrove species including *Ceriops tagal, Rhizophora rnucronata, Bruguiera gyrnnorrhiza, Avicennia marina, Sonneratia alba* and *Xylocarpus benadirensis*. The site is disturbed by artisanal fishermen, both for fishing and bait-collecting, and by groups of tourists brought into the creek by boat. Disturbance levels are not, however, high enough to have a major detectable influence on the foraging behaviour of waders (Hockey et al. 1996). The major problems in the creek will be the negative knock-on effects within the ecosystem of over-fishing and exploitation of the marine environment and mangrove forests. Mangrove roots are frequently cut and mud dug up in order to reach fishing bait which clearly destabilises the mangroves and threatens their survival (Jackson, The Birds of Mida Creek).
+Mida Creek is an important passage and wintering area for Palaearctic migrant waders, with counts of over 8,000 waders. The populations of Greater and Lesser Sandplover and Crab-plovers here are internationally important.
+
+
 ### Sampling Description
-- how the count were performed
-scopes, number fo people, writting in notebook and converting to excel spreasdsheet. etc...
+Counts are carried out every month on a date and time with ideal tides (low tide at Sabaki and rising tide of 2.4m at Mida Creek). The team is lead by a staff from A Rocha Kenya, a scribe and usually several volunteers. At Sabaki, the same path is taken along the river to the river mouth while in Mida, the counts are performed from a stationary point. Scopes and tally counters are used. The scribes writes in a notebook (Notebook_Instruction.pdf), writting the species with all the counts announced during the survey. At the end, the scribe tally the count and write down metadata (area counted covered, method of transport, effect of weather on the count, disturbanced of bird observed). After the count, the staff is enters the counts in a spreasheet, checking the count totals and assign a count precision.
 
 ### Quality control
-R script?
+A rapid quality control was performed but errors might still be present in the dataset. Contact us in case of doubt. 
 
 ### Step Description
+
 https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/scripts/generate_gbif_files
 
 
