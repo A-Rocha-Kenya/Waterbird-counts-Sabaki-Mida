@@ -24,19 +24,15 @@ Every month since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been moni
 |Number of observations      |1'782       |3'539   |
 |Number of individual seen   |265'402     |402'184 |
  
-**Purpose:**
+**Purposes:**
 - Monitoring waterbird population at these two key migratory stopover and wintering sites
 - Assess short- and long-term trends of wader populations
 - Learn about seasonality patterns in arrival and departure dates
 - Study the impact of climate change, habitat change, human disturbance
 
-**Links to other organisations**:
-- [International Waterbird Census](http://iwc.wetlands.org/) (coordinated by [Wetlands International](https://www.wetlands.org/)) 
-- [Coordinated Waterbird Counts (CWAC)](http://cwac.birdmap.africa/)
-- [The Ramsar Convention on Wetlands](https://www.ramsar.org/), 
-- [The Agreement on the Conservation of African-Eurasian Migratory Waterbirds (AEWA)](https://www.unep-aewa.org/)
 
 **Type of data**
+
 This dataset is published as a [Darwin Core Archive](https://dwc.tdwg.org/) using a [sampling event dataset](https://www.gbif.org/sampling-event-data) type.
 
 **Data structure**
@@ -45,21 +41,20 @@ The metadata and data are generated with [a Rmarkdown file](scripts/generate_gbi
 
 ***Table 2**: Events (surveys) table structure*
 
-
 |type  |language |license  |rightsHolder  |ownerInstitutionCode |eventID |samplingProtocol |sampleSizeValue |sampleSizeUnit |samplingEffort |eventDate  |eventTime |locationID |continent |country |countryCode |county |locality   | decimalLatitude| decimalLongitude|dynamicProperties|
 |:-----|:--------|:----------------------------------------------------------|:-------------|:--------------------|:-------------|:----------------|:---------------|:--------------|:--------------|:----------|:---------|:----------|:---------|:-------|:-----------|:------|:----------|---------------:|----------------:|:----------|
 
 
 ***Table 3**: Occurences (counts) table structure*
 
-
 |basisOfRecord    |eventID       |occurrenceID          | individualCount|taxonID |scientificName        |kingdom  |phylum   |class |takonRank |scientificNameAuthorship |vernacularName         |occurrenceRemarks |
 |:----------------|:-------------|:---------------------|---------------:|:-------|:---------------------|:--------|:--------|:-----|:---------|:------------------------|:----------------------|:-----------------|
 
+## Keywords
+bird, waterbird, kenya, count, ornithology, survey, africa, wetland, estuary, creek, east africa, monitoring, climate, population, trend
 
 
 ## Geographic coverage
-
 Located on the coast of Kenya, Sabaki River Mouth and Mida Creek represent key hotspots for waterbirds, especially for wintering and migrating waders. 
 
 ### Bounding box
@@ -87,24 +82,15 @@ The `taxonID` used is the species code from the [eBird/Clements Checklist of Bir
 
 **Families**: *Scolopacidae* (Sandpipers and Allies), *Laridae* (Gulls, Terns and Skimmers), *Charadriidae* (Plovers and Lapwings), *Phoenicopteridae* (Flamingos), *Dromadidae* (Crab-plover), *Anatidae* (Ducks and Geese), *Glareolidae* (Coursers and Pratincoles), *Accipitridae* (Hawks, Vultures, Buzzards, Eagles and Allies), *Threskiornithidae* (Ibises and Spoonbills), *Ardeidae* (Herons, Egrets and Bitterns), *Ciconiidae* (Storks), *Pelecanidae* (Pelicans), *Recurvirostridae* (Stilts and Avocets), *Haematopodidae* (Oystercatchers), *Alcedinidae* (Kingfishers), *Burhinidae* (Thick-knees), *Phalacrocoracidae* (Cormorants), *Pandionidae* (Ospreys), *Rostratulidae* (Painted-snipes), *Balaenicipitidae* (Shoebill), *Jacanidae* (Jacanas), *Rallidae* (Rails, Crakes and Gallinules)
 
-
-
 ## Temporal coverage
 The temporal coverage is **1998-10-29 - 2020-09-16**.
-
-
-## Keywords
-bird, waterbird, kenya, count, ornithology, survey, africa, wetland, estuary, creek, east africa, monitoring, climate, population, trend
-
-## Associated parties
 
 
 
 ### Content providers
 
-The counts are organized by A Rocha Kenya. 
+The counts are organized by [A Rocha Kenya](https://www.arocha.or.ke/). 
 The (incomplete) list of participants includes: Alasdair Lindop, Albert Baya, Alex Mwalim, Améline Nussbaumer, Amina Simba, Andrew Kinzer, Apolloh James, Benjamin Suluby, Chris Halliwell, Colin Jackson, Daniel Kazungu, Dena Elijah, Dixon, Edwin, Eric Thuranira, Erick Karisa Menza, Francis Kazungu, Frank, Freshly Tsofa, Harry Mjambili, Hilary Mwachia, Israel Lemako, Jan Van Beck, Job Aben, Jonathan Furaha, Joseph Ojuja, Judith Adhiambo, Juma Badi, Kate England, Kibwana Ali, Kirao Lennox, Kirao Mwari, Lydia Kayaa, Lynton Baird, Marissa, Martilda Munga, Melisa, Michael Kadenge, Monica Njambi, Mustafa Adamjee, Patrick Kaingu, Pauline Kasungu, Peter Musembi, Peter Ndurya, Raphaël Nussbaumer, Rehema, Saddam Kailo, Salim Abdallah, Sam Oldland, Sammy Kenga, Samuel Mwen, Ted Nanninga, Timothy Mweri.
-
 
 
 
@@ -129,15 +115,12 @@ A series of high (up to c. 25 m) wind-blown sand dunes extend about five km nort
 
 ![Figure 2](data/Sabaki1984-2016.gif)
 
-***Figure 2**: Animated map showing the evolution of the Sabaki Delta Estuary from 1984 to 2016.*
+***Figure 2**: Animated map showing the evolution of the Sabaki Delta Estuary from 1984 to 2016. See See [https://www.planet.com/stories/sabaki-river-delta-FIGtYp1MR](https://www.planet.com/stories/sabaki-river-delta-FIGtYp1MR) for a more recent and higher resolution animated map.*
 
-<video width="960" height="540" src="https://storage.googleapis.com/planet-t2/sabaki-river-delta-FIGtYp1MR/movie.mp4" />
 
-***Figure 3**: High resolution animated map showing the monthly evolution of the Sabaki Delta Estuary from 2016-2020.*
+![Figure 3](data/coverage_Sabaki.png)
 
-![Figure 4](data/coverage_Sabaki.png)
-
-***Figure 4**: Coverage of the counts performed at Sabaki River Mouth per year and month. The colorscale indicates the number of species recorded in each count.*
+***Figure 3**: Coverage of the counts performed at Sabaki River Mouth per year and month. The colorscale indicates the number of species recorded in each count.*
 
 
 **Mida Creek**
@@ -149,12 +132,11 @@ Mida Creek is an important passage and wintering area for Palaearctic migrant wa
 
 ![Mida-satellite](data/Mida_satellite.jpg)
 
-***Figure 5**: Satellite Image of Mida Creek.*
+***Figure 4**: Satellite Image of Mida Creek.*
 
-![Figure 6](data/coverage_Mida%20Creek.png)
+![Figure 5](data/coverage_Mida%20Creek.png)
 
-***Figure 6**: Coverage of the counts performed at Mida Creek per year and month. The colorscale indicates the number of species recorded in each count.*
-
+***Figure 5**: Coverage of the counts performed at Mida Creek per year and month. The colorscale indicates the number of species recorded in each count.*
 
 ### Sampling Description
 Counts are carried out every month on a date and time with ideal tides (low tide at Sabaki and rising tide of 2.4m at Mida Creek). The team is composed of a staff member from A Rocha Kenya Science Department, a scribe and usually several volunteers. At Sabaki, the same path is taken by foot along the river to the river mouth while in Mida, the counts are performed from a stationary point. Scopes and tally counters are used. The scribe writes in a notebook, listing the species with all the counts announced during the survey and, at the end, he/she tallies the counts and write down metadata (start/end times, area covered, effect of weather on the count, disturbance of bird observed). [A copy of the instructions](data/Notebook_Instruction.pdf) is available. After the count, the staff enters the counts in an excel spreadsheet, checking the count totals and assigning a count precision.
@@ -168,21 +150,21 @@ The conversion to the GBIF standard is performed with [a Rmarkdown script](https
 
 
 
-## Citations
-
-### Citations
-[auto generated]
+## Links to other organisations
+- [International Waterbird Census](http://iwc.wetlands.org/) (coordinated by [Wetlands International](https://www.wetlands.org/)) 
+- [Coordinated Waterbird Counts (CWAC)](http://cwac.birdmap.africa/)
+- [The Ramsar Convention on Wetlands](https://www.ramsar.org/), 
+- [The Agreement on the Conservation of African-Eurasian Migratory Waterbirds (AEWA)](https://www.unep-aewa.org/)
 
 
 ## External Links
-
 - [Github Repository](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida)
 - [Script to generate the gbif files](https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/scripts/generate_gbif_files)
 - [Shiny App](https://rafnuss.shinyapps.io/water_bird_count/)
 - [ResearchGate Project](https://www.researchgate.net/project/Waterbird-Counts-on-the-Kenya-coast)
+- [A Rocha Kenya](https://www.arocha.or.ke/)
 
 ## References
-
 - England, K. J. H., Jackson, C., & Hockey, P. A. R. (2015). A novel methodology for the rapid assessment of waterbird vulnerability to disturbance. *Ostrich*, **86**(1–2), 75–85. DOI: [10.2989/00306525.2015.1030793](https://doi.org/10.2989/00306525.2015.1030793)
 - Fishpool, L. D. C., Evans, M. I., & others. (2001). Important Bird Areas in Africa and associated islands: Priority sites for conservation. *BirdLife International Cambridge.* 
 - Harebottle, D. M., Jackson, C. H. W., & Oschadleus, H. D. (2005). Wader ringing in coastal Kenya – results and overview from the first AFRING waterbird ringing course. Wader Study Group Bulletin, 106(April), 55-57
