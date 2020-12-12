@@ -90,16 +90,7 @@ The `taxonID` used is the species code from the [eBird/Clements Checklist of Bir
 
 
 ## Temporal coverage
-
 The temporal coverage is **1998-10-29 - 2020-09-16**.
-
-![Figure 2](data/coverage_Sabaki.png)
-
-***Figure 2**: Coverage of the counts performed at Sabaki River Mouth per year and month. The colorscale indicates the number of species recorded in each count.*
-
-![Figure 3](data/coverage_Mida%20Creek.png)
-
-***Figure 3**: Coverage of the counts performed at Mida Creek per year and month. The colorscale indicates the number of species recorded in each count.*
 
 
 ## Keywords
@@ -127,8 +118,6 @@ The (incomplete) list of participants includes: Alasdair Lindop, Albert Baya, Al
 
 **Sabaki River Mouth**
 
-![Sabaki-satellite](data/Sabaki_satellite.jpg)
-
 **IBA**: [6409](http://datazone.birdlife.org/site/factsheet/6409)
 
 Sabaki River Mouth is where the Athi-Galana-Sabaki river system flows into the Indian Ocean some 5 km north of Malindi. Due to the combined action of ocean currents and freshwater flow from the highlands bringing high levels of silt, a diverse array of habitats have been formed. These include open an sandy beach, sandbanks, mudflats, salt marshes, vegetated and bare sand dunes, seasonal and permanent fresh water pools, mangroves, grassland and coastal scrub. Since the mid-1970s a high level of silt deposition has taken place that has extended the river mouth into the ocean and created the wide, open mud and sand flats which are the key attraction for large numbers of waders. Until c. 2000, there was only some degraded patches of mangrove forest slightly upstream. With the siltation, however, conditions have become ideal for mangroves, and an area of over 12 ha of mangrove forest has grown on the northern banks of the river mouth. Seasonal wetlands form during seasons of good rain on the extension of low sand dunes between the beach and the old, high sand dunes and provide breeding habitat for some birds such as Black-winged Stilts. The sandflats and beach are regularly used as a roost for large numbers of gulls and terns which forage out at sea and come to the relative safety of the river mouth to rest.
@@ -140,8 +129,13 @@ A series of high (up to c. 25 m) wind-blown sand dunes extend about five km nort
 ![Figure 2](data/Sabaki1984-2016.gif)
 ***Figure 2**: Animated map showing the evolution of the Sabaki Delta Estuary from 1984 to 2016.*
 
-![Figure 3](data/Sabaki2016-2020.mp4)
+<video width="960" height="540" src="https://storage.googleapis.com/planet-t2/sabaki-river-delta-FIGtYp1MR/movie.mp4" />
 ***Figure 3**: High resolution animated map showing the monthly evolution of the Sabaki Delta Estuary from 2016-2020.*
+
+![Figure 2](data/coverage_Sabaki.png)
+
+***Figure 2**: Coverage of the counts performed at Sabaki River Mouth per year and month. The colorscale indicates the number of species recorded in each count.*
+
 
 **Mida Creek**
 
@@ -152,16 +146,19 @@ A series of high (up to c. 25 m) wind-blown sand dunes extend about five km nort
 Mida creek is a biologically important and complex tidal marine multi-habitat ecosystem supporting the adjacent local communities by providing foods, building materials and tourism revenues (Weru et al., 2000). The total intertidal area of this marine inlet is approximately 580 ha.: there is minimal freshwater inflow. The majority of the Creek is fringed with a diverse assemblage of mangrove species including *Ceriops tagal, Rhizophora rnucronata, Bruguiera gyrnnorrhiza, Avicennia marina, Sonneratia alba* and *Xylocarpus benadirensis*. The site is disturbed by artisanal fishermen, both for fishing and bait-collecting, and by groups of tourists brought into the creek by boat. Disturbance levels are not, however, high enough to have a major detectable influence on the foraging behaviour of waders (Hockey et al. 1996). The major problems in the creek will be the negative knock-on effects within the ecosystem of over-fishing and exploitation of the marine environment and mangrove forests. Mangrove roots are frequently cut and mud dug up in order to reach fishing bait which clearly destabilises the mangroves and threatens their survival (Jackson, The Birds of Mida Creek).
 Mida Creek is an important passage and wintering area for Palaearctic migrant waders, with counts of over 8,000 waders. The populations of Greater and Lesser Sandplover and Crab-plovers here are internationally important.
 
+![Figure 3](data/coverage_Mida%20Creek.png)
+
+***Figure 3**: Coverage of the counts performed at Mida Creek per year and month. The colorscale indicates the number of species recorded in each count.*
+
 
 ### Sampling Description
-Counts are carried out every month on a date and time with ideal tides (low tide at Sabaki and rising tide of 2.4m at Mida Creek). The team is lead by a staff from A Rocha Kenya, a scribe and usually several volunteers. At Sabaki, the same path is taken along the river to the river mouth while in Mida, the counts are performed from a stationary point. Scopes and tally counters are used. The scribes writes in a notebook (Notebook_Instruction.pdf), writting the species with all the counts announced during the survey. At the end, the scribe tally the count and write down metadata (area counted covered, method of transport, effect of weather on the count, disturbanced of bird observed). After the count, the staff is enters the counts in a spreasheet, checking the count totals and assign a count precision.
+Counts are carried out every month on a date and time with ideal tides (low tide at Sabaki and rising tide of 2.4m at Mida Creek). The team is composed of a staff member from A Rocha Kenya Science Department, a scribe and usually several volunteers. At Sabaki, the same path is taken by foot along the river to the river mouth while in Mida, the counts are performed from a stationary point. Scopes and tally counters are used. The scribe writes in a notebook, listing the species with all the counts announced during the survey and, at the end, he/she tallies the counts and write down metadata (start/end times, area covered, effect of weather on the count, disturbance of bird observed). [A copy of the instructions](data/Notebook_Instruction.pdf) is available. After the count, the staff enters the counts in an excel spreadsheet, checking the count totals and assigning a count precision.
 
 ### Quality control
 A rapid quality control was performed but errors might still be present in the dataset. Contact us in case of doubt. 
 
 ### Step Description
-
-https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/scripts/generate_gbif_files
+The conversion to the GBIF standard is performed with [a Rmarkdown script](https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/scripts/generate_gbif_files).
 
 
 
@@ -174,22 +171,23 @@ https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/scripts/generate_gb
 
 ## External Links
 
-- Github: https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida
-- Script: https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/scripts/generate_gbif_files
-- Shiny App: [https://rafnuss.shinyapps.io/water_bird_count/](https://rafnuss.shinyapps.io/water_bird_count/)
+- [Github Repository](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida)
+- [Script to generate the gbif files](https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/scripts/generate_gbif_files)
+- [Shiny App](https://rafnuss.shinyapps.io/water_bird_count/)
+- [ResearchGate Project](https://www.researchgate.net/project/Waterbird-Counts-on-the-Kenya-coast)
 
 ## References
 
 - England, K. J. H., Jackson, C., & Hockey, P. A. R. (2015). A novel methodology for the rapid assessment of waterbird vulnerability to disturbance. *Ostrich*, **86**(1–2), 75–85. DOI: [10.2989/00306525.2015.1030793](https://doi.org/10.2989/00306525.2015.1030793)
-- Otieno, N. E., Oyieke, H., Ogoma, M., & Kochey, J. (2011). Bird assemblage patterns in relation to anthropogenic habitat modification around an East African estuary. *Western Indian Ocean Journal of Marine Science*, **10**(2), 191-200–200.
-- DOI:[10.2989/00306525.2012.680262](https://doi.org/10.2989/00306525.2012.680262)
-- Seys, J., Moragwa, G., Boera, P., & Ngoa, M. (1995). Distribution and abundance of birds in tidal creeks and estuaries of the Kenyan coast between the Sabaki River and Gazi Bay. *Scopus: Journal of East African Ornithology*, **19**, 47–60.
-- Valle, S., Boitani, L., & Maclean, I. M. D. (2012). Seasonal changes in abundances of waterbirds at Sabaki River Mouth (Malindi, Kenya), a key stopover site on the West Asian-East African Flyway. *Ostrich*, **83**(1), 19–26. DOI: [10.2989/00306525.2012.680262](https://doi.org/10.2989/00306525.2012.680262)
-- Nasirwa, O., Oyugi, J., Jackson, C., Lens, L., Bennun, L., & Seys, J. (1995). Surveys of waterbirds in Kenya, 1995: Lake Victoria wetlands, south Kenya coast and Tana River dams. *Centre for Biodiversity Research Reports: Ornithology*. DOI:[doi.org/10.14284/175](https://doi.org/10.14284/175)
 - Fishpool, L. D. C., Evans, M. I., & others. (2001). Important Bird Areas in Africa and associated islands: Priority sites for conservation. *BirdLife International Cambridge.* 
+- Harebottle, D. M., Jackson, C. H. W., & Oschadleus, H. D. (2005). Wader ringing in coastal Kenya – results and overview from the first AFRING waterbird ringing course. Wader Study Group Bulletin, 106(April), 55-57
+- Hockey, P. A. R., Plagényi, É. E., Turpie, J. K., & Phillips, T. E. (1996). Foraging Beharivous of Crab Plovers Droma Ardeola at Mida Creek, Kenya. *Ostrich*, 67(1), 33–44. [10.1080/00306525.1996.9633778](https://doi.org/10.1080/00306525.1996.9633778)
 - Houte-howes, K. S. S. Van. (2005). Macroinvertebrate communities in intertidal mudflats at the Sabaki River Estuary, Kenya: An important habitat for resident and migratory shore birds . Watamu.
 - Jackson, C. (2010). The Birds of Mida Creek, Kenya. Watamu.
 - Moragwa, G., Fondo, E., & Okondo, J. (1996). Birds of Mida Creek (Vol. 26).
-- Pearson, D. J., & Serra, L. (2002). Biometrics, moult and migration of Grey Plavers Pluvialis squatarola, at Mida Creek, Kenya. *Ostrich*, 73(3–4), 143–146. https://doi.org/10.1080/00306525.2002.11446744
-- Harebottle, D. M., Jackson, C. H. W., & Oschadleus, H. D. (2005). Wader ringing in coastal Kenya – results and overview from the first AFRING waterbird ringing course. Wader Study Group Bulletin, 106(April), 55-57.
-- Hockey, P. A. R., Plagényi, É. E., Turpie, J. K., & Phillips, T. E. (1996). FORAGING BEHAVIOUR OF CRAB PLOVERS DROMAS ARDEOLA AT MIDA CREEK, KENYA. *Ostrich*, 67(1), 33–44. https://doi.org/10.1080/00306525.1996.9633778
+- Nasirwa, O., Oyugi, J., Jackson, C., Lens, L., Bennun, L., & Seys, J. (1995). Surveys of waterbirds in Kenya, 1995: Lake Victoria wetlands, south Kenya coast and Tana River dams. *Centre for Biodiversity Research Reports: Ornithology*. DOI:[10.14284/175](https://doi.org/10.14284/175)
+- Nussbaumer, R., Lennox, K., & Jackson, C. (2020). National Waterbird Counts Report Kenya , Coast. DOI:[10.13140/RG.2.2.36630.57925](https://doi.org/10.13140/RG.2.2.36630.57925)
+- Otieno, N. E., Oyieke, H., Ogoma, M., & Kochey, J. (2011). Bird assemblage patterns in relation to anthropogenic habitat modification around an East African estuary. *Western Indian Ocean Journal of Marine Science*, **10**(2), 191-200–200. DOI:[10.2989/00306525.2012.680262](https://doi.org/10.2989/00306525.2012.680262)
+- Pearson, D. J., & Serra, L. (2002). Biometrics, moult and migration of Grey Plavers Pluvialis squatarola, at Mida Creek, Kenya. *Ostrich*, 73(3–4), 143–146. DOI: [10.1080/00306525.2002.11446744](https://doi.org/10.1080/00306525.2002.11446744)
+- Seys, J., Moragwa, G., Boera, P., & Ngoa, M. (1995). Distribution and abundance of birds in tidal creeks and estuaries of the Kenyan coast between the Sabaki River and Gazi Bay. *Scopus: Journal of East African Ornithology*, **19**, 47–60.
+- Valle, S., Boitani, L., & Maclean, I. M. D. (2012). Seasonal changes in abundances of waterbirds at Sabaki River Mouth (Malindi, Kenya), a key stopover site on the West Asian-East African Flyway. *Ostrich*, **83**(1), 19–26. DOI: [10.2989/00306525.2012.680262](https://doi.org/10.2989/00306525.2012.680262)
