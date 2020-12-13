@@ -126,7 +126,7 @@ A series of high (up to c. 25 m) wind-blown sand dunes extend about five km nort
 Mida creek is a biologically important and complex tidal marine multi-habitat ecosystem supporting the adjacent local communities by providing foods, building materials and tourism revenues (Weru et al., 2000). The total intertidal area of this marine inlet is approximately 580 ha.: there is minimal freshwater inflow. The majority of the Creek is fringed with a diverse assemblage of mangrove species including *Ceriops tagal, Rhizophora rnucronata, Bruguiera gyrnnorrhiza, Avicennia marina, Sonneratia alba* and *Xylocarpus benadirensis*. The site is disturbed by artisanal fishermen, both for fishing and bait-collecting, and by groups of tourists brought into the creek by boat. Disturbance levels are not, however, high enough to have a major detectable influence on the foraging behaviour of waders (Hockey et al. 1996). The major problems in the creek will be the negative knock-on effects within the ecosystem of over-fishing and exploitation of the marine environment and mangrove forests. Mangrove roots are frequently cut and mud dug up in order to reach fishing bait which clearly destabilises the mangroves and threatens their survival (Jackson, The Birds of Mida Creek).
 Mida Creek is an important passage and wintering area for Palaearctic migrant waders, with counts of over 8,000 waders. The populations of Greater and Lesser Sandplover and Crab-plovers here are internationally important.
 
-![Mida-satellite](data/Mida_satellite.jpg =600x)
+![Mida-satellite](data/Mida_satellite.jpg)
 
 ***Figure 5**: Satellite Image of Mida Creek.*
 
