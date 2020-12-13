@@ -106,7 +106,7 @@ A series of high (up to c. 25 m) wind-blown sand dunes extend about five km nort
 "Sabaki" is the name of the final few kilometres of the river that starts in the Ngong Hills west of Nairobi as the Athi River and is known as the Galana River through Ukambani and Tsavo East National Park.
 
 
-![Figure 2](data/Sabaki1984-2016.gif =600x)
+![Figure 2](data/Sabaki1984-2016.gif)
 
 ***Figure 2**: Animated map showing the evolution of the Sabaki Delta Estuary from 1984 to 2016.*
 
