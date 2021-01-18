@@ -158,6 +158,9 @@ The conversion to the GBIF standard is performed with [a Rmarkdown script](https
 - [ResearchGate Project](https://www.researchgate.net/project/Waterbird-Counts-on-the-Kenya-coast)
 - [A Rocha Kenya](https://www.arocha.or.ke/)
 
+## Power BI visual
+<iframe width="800" height="486" src="https://app.powerbi.com/view?r=eyJrIjoiMTFjNmU5MjktZWQ2OS00MWEwLWEzZTEtOTVlYTkxMzk0YjA4IiwidCI6ImE2MzA2MmNiLTI4MmItNDY1MS04NDhmLThjZmM1MTJiNDc4ZiJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+
 
 ## References
 - England, K. J. H., Jackson, C., & Hockey, P. A. R. (2015). A novel methodology for the rapid assessment of waterbird vulnerability to disturbance. *Ostrich*, **86**(1–2), 75–85. DOI: [10.2989/00306525.2015.1030793](https://doi.org/10.2989/00306525.2015.1030793)
