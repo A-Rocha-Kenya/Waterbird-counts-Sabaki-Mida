@@ -43,7 +43,8 @@ countst <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Ma
   replace_na(list(quality="", coverage="", method="",water="",weather="",disturbed="", tidal="",participants="",comment=""))
 
 counts <- countst %>% 
-  filter(date<"2004-02-02" & date>"2004-02-01") %>% 
+  filter(date<"2004-02-02" & date>"2004-02-01") %>% # WHY? 
+  filter(date<"2021-01-01") %>% # Limit dataset publish to the year 2020
   filter(site=='Sabaki (South)' | site=='Sabaki (North)') %>% 
   group_by(date) %>% 
   mutate(start_time = min(start_time),
@@ -71,7 +72,7 @@ species.list <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet 
 locations.list <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Sites") %>% 
   filter( site_name=='Sabaki' | site_name=='Mida Creek')
 
-participants.list <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Participant")
+participants.list <- read_xlsx(paste0(path,"Data/water_bird_count_data.xlsx"), sheet = "Participants")
 
 ```
 
@@ -95,6 +96,7 @@ counts %>% group_by(site) %>%
 
 
 ### Assessement 2: Unique value per event
+Check that there is an unique survey (defined as date+site), meaning that all metadata are the same for all the observations of each surveys. 
 ```{r}
 counts %>% 
   group_by(date, site) %>% 
@@ -113,6 +115,7 @@ counts %>%
 ```
 
 ### Assessement 3: Species validation correct
+Check that the name entered havec their equivalence in the Specie tab of the spreadsheet. Often, it is a problem of case-sensitive. 
 ```{r}
 counts %>% 
   group_by(common_name) %>% 
@@ -121,9 +124,22 @@ counts %>%
   filter( is.na(scientific_name) )
 ```
 
-### Assessement 3: Specie and count
+### Assessement 5: Unique observation
+
+Check that Species are entered only once for each survey. 
+```{r}
+counts %>% 
+  group_by(date, site,common_name) %>% 
+  filter(n()>1) %>% 
+  arrange(date)
+```
+
+### Assessement 4: Manual check of Specie and count
 
 Export pivot table for expert assessment of count
+```{r}
+
+```
 
 ## Dataset Description
 
@@ -339,9 +355,11 @@ occurences %>% head() %>%  kable() %>% kable_styling()
 
 ## Write to Excel
 ```{r}
-write.csv(events, file = paste0(path,"Waterbird-counts-Sabaki-Mida/data/events.csv"), 
+v <- '11'
+
+write.csv(events, file = paste0(path,"Waterbird-counts-Sabaki-Mida/data/events_",v,".csv"), 
           na = "", row.names = FALSE, fileEncoding = "UTF-8")
 
-write.csv(occurences, file = paste0(path,"Waterbird-counts-Sabaki-Mida/data/occurences.csv"), 
+write.csv(occurences, file = paste0(path,"Waterbird-counts-Sabaki-Mida/data/occurences_",v,".csv"), 
           na = "", row.names = FALSE, fileEncoding = "UTF-8")
 ```

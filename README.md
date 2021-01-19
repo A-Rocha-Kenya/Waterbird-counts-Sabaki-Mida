@@ -19,10 +19,10 @@ Since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring water
 
 |                            |Mida Creek  |Sabaki  |
 |:--------|:----------|:------|
-|Number of surveys (events)  |86          |96      |
-|Number of species recorded  |78          |105     |
-|Number of observations      |1'782       |3'539   |
-|Number of individual seen   |265'402     |402'184 |
+|Number of surveys (events)  |89          |97      |
+|Number of species recorded  |80          |108     |
+|Number of observations      |1'848       |3'570   |
+|Number of individual seen   |284'573     |409'059 |
  
 **Purposes:**
 - Monitoring waterbird populations at these two key migratory stopover and non-breeding sites
@@ -81,7 +81,7 @@ The `taxonID` used is the species code from the [eBird/Clements Checklist of Bir
 
 
 ## Temporal coverage
-The temporal coverage is **1998-10-29 - 2020-09-16**.
+The temporal coverage is **1998-10-29 - 2020-12-09**.
 
 ### Content providers
 
