@@ -1,15 +1,19 @@
-# Monthly waterbird counts: Sabaki River Mouth and Mida Creek
+# Waterbird Counts at Sabaki River Mouth and Mida Creek
 
-Raphaël Nussbaumer<sup>1</sup>, Kirao Lennox <sup>1</sup>, Colin Jackson <sup>1</sup>
+Raphaël Nussbaumer<sup>1,[![](https://info.orcid.org/wp-content/uploads/2020/12/orcid_16x16.gif)](http://orcid.org/0000-0002-8185-1020)</sup>, Kirao Lennox<sup>1,[![](https://info.orcid.org/wp-content/uploads/2020/12/orcid_16x16.gif)](http://orcid.org/0000-0002-3548-5787)</sup>, Albert Baya<sup>1</sup>, Jaap Gijsbertsen<sup>1</sup>, Andrew Kinzer<sup>1,[![](https://info.orcid.org/wp-content/uploads/2020/12/orcid_16x16.gif)](http://orcid.org/0000-0001-9521-5175)</sup>, Colin Jackson <sup>1,[![](https://info.orcid.org/wp-content/uploads/2020/12/orcid_16x16.gif)](http://orcid.org/0000-0003-2280-1397)</sup>
 
-[1]: A Rocha Kenya, Watamu, Kenya
+<sup>1</sup>A Rocha Kenya, Watamu, Kenya
 
 **Corresponding author**: Raphaël Nussbaumer (raphael.nussbaumer@arocha.org)
 
 ---
 
-## Data Licences
-This work is licensed under a *Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License*.
+[![DOI:10.15468/9hs9vv](https://zenodo.org/badge/DOI/10.15468/9hs9vv.svg)](https://doi.org/10.15468/9hs9vv)
+<div data-badge-popover="right" data-badge-type="1" data-doi="	10.15468/9hs9vv" data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
+
+
+[![licensebuttons by-nc](https://licensebuttons.net/l/by-nc/3.0/88x31.png)](https://creativecommons.org/licenses/by-nc/4.0)
+
 
 
 ## Description
@@ -157,6 +161,7 @@ The conversion to the GBIF standard is performed with [a Rmarkdown script](https
 - [Shiny App](https://rafnuss.shinyapps.io/water_bird_count/)
 - [ResearchGate Project](https://www.researchgate.net/project/Waterbird-Counts-on-the-Kenya-coast)
 - [A Rocha Kenya](https://www.arocha.or.ke/)
+- [PowerBi Visual](https://app.powerbi.com/view?r=eyJrIjoiMTFjNmU5MjktZWQ2OS00MWEwLWEzZTEtOTVlYTkxMzk0YjA4IiwidCI6ImE2MzA2MmNiLTI4MmItNDY1MS04NDhmLThjZmM1MTJiNDc4ZiJ9&pageName=ReportSection)
 
 ## Power BI visual
 <iframe width="800" height="486" src="https://app.powerbi.com/view?r=eyJrIjoiMTFjNmU5MjktZWQ2OS00MWEwLWEzZTEtOTVlYTkxMzk0YjA4IiwidCI6ImE2MzA2MmNiLTI4MmItNDY1MS04NDhmLThjZmM1MTJiNDc4ZiJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
@@ -177,3 +182,5 @@ The conversion to the GBIF standard is performed with [a Rmarkdown script](https
 - Rose, P.M., Scott, D.A. Waterfowl population estimates. *Publication 44*. Wetl. Int. Wageningen, Netherlands 1997.
 - Seys, J., Moragwa, G., Boera, P., & Ngoa, M. (1995). Distribution and abundance of birds in tidal creeks and estuaries of the Kenyan coast between the Sabaki River and Gazi Bay. *Scopus: Journal of East African Ornithology*, **19**, 47–60. [PDF](http://www.vliz.be/imisdocs/publications/ocrd/242054.pdf)
 - Valle, S., Boitani, L., & Maclean, I. M. D. (2012). Seasonal changes in abundances of waterbirds at Sabaki River Mouth (Malindi, Kenya), a key stopover site on the West Asian-East African Flyway. *Ostrich*, **83**(1), 19–26. DOI: [10.2989/00306525.2012.680262](https://doi.org/10.2989/00306525.2012.680262)
+
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
