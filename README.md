@@ -4,7 +4,7 @@ Raphaël Nussbaumer<sup>1,[![](https://info.orcid.org/wp-content/uploads/2020/12
 
 <sup>1</sup>A Rocha Kenya, Watamu, Kenya
 
-**Corresponding author**: Raphaël Nussbaumer (raphael.nussbaumer@arocha.org)
+**Corresponding author**: Raphaël Nussbaumer ([raphael.nussbaumer@arocha.org](mailto:raphael.nussbaumer@arocha.org))
 
 ---
 
@@ -156,11 +156,12 @@ The conversion to the GBIF standard is performed with [a Rmarkdown script](https
 
 
 ## External Links
+- [GBIF dataset](https://doi.org/10.15468/9hs9vv)
 - [Github Repository](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida)
 - [Script to generate the gbif files](https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/scripts/generate_gbif_files)
 - [Shiny App](https://rafnuss.shinyapps.io/water_bird_count/)
 - [ResearchGate Project](https://www.researchgate.net/project/Waterbird-Counts-on-the-Kenya-coast)
-- [A Rocha Kenya](https://www.arocha.or.ke/)
+- [Waterbird Count blog](https://www.arocha.or.ke/news/over-half-a-million-waterbirds-counted-since-2000/)
 - [PowerBi Visual](https://app.powerbi.com/view?r=eyJrIjoiMTFjNmU5MjktZWQ2OS00MWEwLWEzZTEtOTVlYTkxMzk0YjA4IiwidCI6ImE2MzA2MmNiLTI4MmItNDY1MS04NDhmLThjZmM1MTJiNDc4ZiJ9&pageName=ReportSection)
 
 ## Power BI visual
