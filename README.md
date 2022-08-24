@@ -21,12 +21,12 @@ Since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring water
 
 ***Table 1**: Summary of count statistics.*
 
-|                            |Mida Creek  |Sabaki  |
+|                            |Mida Creek  |Sabaki  |Combined |
 |:--------|:----------|:------|
-|Number of surveys (events)  |105         |119     |
-|Number of species recorded  |80          |108     |
-|Number of observations      |2'205       |4'494   |
-|Number of individual seen   |327'282     |543'149 |
+|Number of surveys (events)  |105         |119     |224      |
+|Number of species recorded  |80          |108     |105      |
+|Number of observations      |2'205       |4'494   |6'699    |
+|Number of individual seen   |327'282     |543'149 |870'431  |
  
 **Purposes:**
 - Monitoring waterbird populations at these two key migratory stopover and non-breeding sites
