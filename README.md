@@ -22,7 +22,7 @@ Since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring water
 ***Table 1**: Summary of count statistics.*
 
 |                            |Mida Creek  |Sabaki  |Combined |
-|:--------|:----------|:------|
+|:--------|:----------|:------|:------|
 |Number of surveys (events)  |105         |119     |224      |
 |Number of species recorded  |80          |108     |105      |
 |Number of observations      |2'205       |4'494   |6'699    |
