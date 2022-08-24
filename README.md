@@ -23,10 +23,10 @@ Since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring water
 
 |                            |Mida Creek  |Sabaki  |
 |:--------|:----------|:------|
-|Number of surveys (events)  |89          |97      |
+|Number of surveys (events)  |105         |119     |
 |Number of species recorded  |80          |108     |
-|Number of observations      |1'848       |3'570   |
-|Number of individual seen   |284'573     |409'059 |
+|Number of observations      |2'205       |4'494   |
+|Number of individual seen   |327'282     |543'149 |
  
 **Purposes:**
 - Monitoring waterbird populations at these two key migratory stopover and non-breeding sites
@@ -40,7 +40,7 @@ This dataset is published as a [Darwin Core Archive](https://dwc.tdwg.org/) usin
 
 **Data structure**
 
-The metadata and data are generated with [an Rmarkdown file](scripts/generate_gbif_files.html) based on the spreadsheet used to enter data. This script produces two table files: [`events.csv`](data/events.csv) records information related to the overall surveys and [`occurences.csv`](data/occurences.csv) which contains information about individual counts. 
+The metadata and data are generated with [an Rmarkdown file](scripts/generate_gbif_files.html) based on the spreadsheet used to enter data. This script produces two table files: `events.csv` records information related to the overall surveys and `occurences.csv` which contains information about individual counts (see [`dwc_files/`](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/tree/master/dwc_files/)). 
 
 ***Table 2**: Events (surveys) table structure*
 
@@ -50,7 +50,7 @@ The metadata and data are generated with [an Rmarkdown file](scripts/generate_gb
 
 ***Table 3**: Occurences (counts) table structure*
 
-| basisOfRecord | eventID | occurrenceID | individualCount | taxonID | scientificName | kingdom | phylum | class | takonRank | scientificNameAuthorship | vernacularName | occurrenceRemarks |
+| basisOfRecord | eventID | occurrenceID | individualCount | taxonID | scientificName | kingdom | phylum | class | takonRank | vernacularName | occurrenceRemarks |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 
 ## Keywords
@@ -69,7 +69,7 @@ The Ramsar Convention on Wetlands defines waterbirds as any "species of bird tha
 
 Taxa are recorded at the species level with the exception of the Heuglin's Gull (*larus fuscus heuglini*) and Baltic Gull (*Larus fuscus fuscus*). Whenever a bird could not be safely identified at the species level, the identification was done as slash (e.g. Lesser/Greater Sand Plover), genus, family, order or even as *Aves sp.*.
 
-Our dataset contains **107** species and **6** at other taxon levels (subspecies, family, slash etc.) belonging to **22** families.
+Our dataset contains **110** species and **6** at other taxon levels (subspecies, family, slash etc.) belonging to **22** families.
 
 The `taxonID` used is the species code from the [eBird/Clements Checklist of Birds of the World: v2019](https://www.birds.cornell.edu/clementschecklist/download/).
 
@@ -90,16 +90,16 @@ The temporal coverage is **1998-10-29 - 2020-12-09**.
 ### Content providers
 
 The counts are organized by [A Rocha Kenya](https://www.arocha.or.ke/). 
-The (incomplete) list of participants includes: Alasdair Lindop, Albert Baya, Alex Kinzer, Alex Mwalimu, Améline Nussbaumer, Amina Simba, Andrew Kinzer, Andrew McNaughton, Andy Plumptre, Annali Bamber-Jones, Apolloh James, Benjamin Suluby, Benjamin Cowburn, Benji Van Baelenberghe, Beth House, Chege Kariuki, Chris Halliwell, Colin Jackson, Daniel Kazungu, Dave Bruinsma, Dave Guenther, David Ngala, Dena Elijah, Dixon, Dónall Cross, Edwin, Eric Thuranira, Erick Karisa Menza, Fleur Ng'weno, Francis Kazungu, Frank Willems, Freshly Tsofa, Gabe LePage, George Darrah, Harry Mjambili, Hassan Matembe, Hassan Mdogo, Hilary Mwachia, Israel Lemako, Jan Van Beck, Jeff Davis, Jem Harris, Job Aben, John Gitiri, Jonathan Furaha, Joseph Ojuja, Judith Adhiambo, Judith Feldhaus, Juma Badi, Karel De La Cruz Victoria, Kate England, Katie Eshelman, Kibwana Ali, Kirao Lennox, Kirao Mwari, Kristel van Haute-Howes, Laura Sleeman, Lydia Kayaa, Lynton Baird, Marissa, Martilda Munga, Melisa, Michael Kadenge, Monicah Njambi, Mtawali, Mustafa Adamjee, Nancy Cross, Patrick Kaingu, Pauline Kazungu, Peter Musembi, Peter Ndurya, Raphaël Nussbaumer, Rehema, Robin Harris, Roni Jackson, Saddam Kailo, Salim Abdallah, Sam Oldland, Sammy Kenga, Samuel Mweni, Sarah Walker, Simon Valle, Stanley Baya, Tansy Bliss, Ted Nanninga, Timothy Mweri, Willy Kombe.
+The (incomplete) list of participants includes: Alasdair Lindop, Albert Baya, Alex Mwalim, Amani Kirao, Ameline Nussbaumer, Amina simba, Andrew Kinzer, Antony Kariuki, Apolloh James, Artur Gijsbertsen, Aurelia Gijsbertsen, Benjamin Suluby, Benson Kadenge, Bonface Mutie, Carlos, Chris Halliwell, Christine Pendo Samini, Colin Jackson, Daniel Kazungu, David Yekutiel, Dena Elijah, Dickson Thoya, Dixon, Doris Schaule, Edwin, Elizabeth Obilo, Emma Mwirigi, Eric Thuranira, Erick Karisa Menza, Francis Kazungu, Francisca Sprong, Frank, Freshly Tsofa, George Perkin, Harriet Thomasiana, Harry Mjambili, Hassan Shaban Kombo, Hilary Mwachia, Israel Lemako, Jaap Gijsbertsen, James Boozard, Jan Van Beck, Japhet Amani, Japheth Musil Mwendwa, Jeff Ochieng', Job Aben, John Mansfield, Jonathan Furaha, Joseph Mangi, Joseph Ojuja, Judith Adhiambo, Juma Badi, Kai Jackson, Kate England, Kibwana Ali, Kirao Lennox, Kirao Mwari, Lempiris Leteipa, Lesiamo Leteipa, Lugo Katana, Lydia Kayaa, Lynton Baird, Mangi Joseph, Marissa, Martha Nzisa Mutiso, Martilda Munga, Melisa, Michael Kadenge, Mlamba Edson, Monica Njambi, Mustafa Adamjee, Mvera Kirao, Nicholas Warren, Patrick Kaingu, Paul, Paul Mwangi, Pauline Kasungu, Peter Musembi, Peter Ndurya, Queen Elizabeth Hare, Raphaël Nussbaumer, Rehema, Saddam Kailo, Salim Abdallah, Salma Mazrui, Sam Oldland, Sammy Kenga, Samuel Mwen, Sifa Ngonyo, Simon Ikham, Simon Kenga, Sophie Dana, Stacey Wangari, Stanley Thoya Baya, Ted Nanninga, Thoya Charo, Timothy Mweri.
 
 
 ## Sampling Methods
 
 ### Study extent
 
-[![Figure 1](data/locations.png)](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/blob/master/data/locations.geojson)
+[![Figure 1](assets/locations.png)](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/blob/master/assets/locations.geojson)
 
-***Figure 1**: Map showing the path followed during the transect and the area covered for the count in Sabaki River Mouth (North) and Mida Creek (South). This geospatial dataset is available in [this repository](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/blob/master/data/locations.geojson) as a geojson file.*
+***Figure 1**: Map showing the path followed during the transect and the area covered for the count in Sabaki River Mouth (North) and Mida Creek (South). This geospatial dataset is available in [this repository](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/blob/master/assets/locations.geojson) as a geojson file.*
 
 **Sabaki River Mouth** (IBA: [6409](http://datazone.birdlife.org/site/factsheet/6409))
 
@@ -110,16 +110,16 @@ A series of high (up to c. 25 m) wind-blown sand dunes extend about 5 km north a
 "Sabaki" is the name of the final few kilometres of the river that starts in the Ngong Hills west of Nairobi as the Athi River and is known as the Galana River through Ukambani and Tsavo East National Park.
 
 
-![Figure 2](data/Sabaki1984-2016.gif)
+![Figure 2](assets/Sabaki1984-2016.gif)
 
 ***Figure 2**: Animated map showing the evolution of the Sabaki Delta Estuary from 1984 to 2016.*
 
 
-![Figure 3](data/Sabaki2016-2020.gif)
+![Figure 3](assets/Sabaki2016-2020.gif)
 
 ***Figure 3**: Animated map showing the evolution of the Sabaki Delta Estuary from 2016 to 2020 with a monthly resolution. [A full resolution video can be found on planet.com](https://www.planet.com/stories/sabaki-river-delta-FIGtYp1MR).*
 
-![Figure 4](data/coverage_Sabaki.png)
+![Figure 4](assets/coverage_Sabaki.png)
 
 ***Figure 4**: Coverage of the counts performed at Sabaki River Mouth per year and month. The colorscale indicates the number of species recorded in each count.*
 
@@ -130,16 +130,16 @@ A series of high (up to c. 25 m) wind-blown sand dunes extend about 5 km north a
 Mida Creek is a biologically important and complex tidal marine multi-habitat ecosystem supporting the adjacent local communities by providing food, building materials and tourism revenue (Weru et al., 2000). The total intertidal area of this marine inlet is approximately 580 ha.; there is no freshwater surface inflow, only through underground seepage. The majority of the Creek is fringed with a diverse assemblage of mangrove species including *Ceriops tagal, Rhizophora rnucronata, Bruguiera gyrnnorrhiza, Avicennia marina, Sonneratia alba* and *Xylocarpus benadirensis*. The site is disturbed by artisanal fishermen, both for fishing and bait-collecting, and by groups of tourists brought into the creek by boat and on foot from the inland side. Historically disturbance levels have not, however, been high enough to have a major detectable influence on the foraging behaviour of waders (Hockey et al. 1996). The major problems in the creek will be the negative knock-on effects within the ecosystem of over-fishing and exploitation of the marine environment and mangrove forests. Mangrove roots are frequently cut and mud dug up in order to reach fishing bait which clearly destabilises the mangroves and threatens their survival (Jackson 2010, The Birds of Mida Creek).
 Mida Creek is an important passage and non-breeding area for Palaearctic migrant waders, with counts of over 8,000 waders. The populations of Greater and Lesser Sand Plover and Crab-plovers here are internationally important.
 
-![Mida-satellite](data/Mida_satellite.jpg)
+![Mida-satellite](assets/Mida_satellite.jpg)
 
 ***Figure 5**: Satellite Image of Mida Creek.*
 
-![Figure 6](data/coverage_Mida%20Creek.png)
+![Figure 6](assets/coverage_Mida%20Creek.png)
 
 ***Figure 6**: Coverage of the counts performed at Mida Creek per year and month. The colorscale indicates the number of species recorded in each count.*
 
 ### Sampling Description
-Counts are carried out every month on a date and time with ideal tides (low tide at Sabaki and a Neap high of 2.3m - 2.5m at Mida Creek). The team is composed of a staff member from A Rocha Kenya Science Department, a scribe and usually several volunteers. At Sabaki, the same route is followed on foot along the river bank to the river mouth while in Mida, the counts are performed from a stationary point. Binoculars, telescopes and tally counters are used. The scribe writes in a notebook, listing the species with all the counts announced during the survey and, at the end, he/she tallies the counts and records key metadata (start/end times, area covered, effect of weather on the count, disturbance of bird observed). [A copy of the instructions](data/Notebook_Instruction.pdf) is available. After the count, the staff member enters the count data in an excel spreadsheet, checking the count totals and assigning a count precision.
+Counts are carried out every month on a date and time with ideal tides (low tide at Sabaki and a Neap high of 2.3m - 2.5m at Mida Creek). The team is composed of a staff member from A Rocha Kenya Science Department, a scribe and usually several volunteers. At Sabaki, the same route is followed on foot along the river bank to the river mouth while in Mida, the counts are performed from a stationary point. Binoculars, telescopes and tally counters are used. The scribe writes in a notebook, listing the species with all the counts announced during the survey and, at the end, he/she tallies the counts and records key metadata (start/end times, area covered, effect of weather on the count, disturbance of bird observed). [A copy of the instructions](assets/Notebook_Instruction.pdf) is available. After the count, the staff member enters the count data in an excel spreadsheet, checking the count totals and assigning a count precision.
 
 ### Quality control
 A rapid quality control has been carried on this dataset but errors are likely to still be present. [Contact us](mailto:raphael.nussbaumer@arocha.org) in case of questions. 
