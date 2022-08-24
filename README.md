@@ -24,7 +24,7 @@ Since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring water
 |                            |Mida Creek  |Sabaki  |Combined |
 |:--------|:----------|:------|:------|
 |Number of surveys (events)  |105         |119     |224      |
-|Number of species recorded  |80          |108     |105      |
+|Number of taxon recorded    |80          |108     |105      |
 |Number of observations      |2'205       |4'494   |6'699    |
 |Number of individual seen   |327'282     |543'149 |870'431  |
  
@@ -45,7 +45,7 @@ The metadata and data are generated with [an Rmarkdown file](scripts/generate_gb
 ***Table 2**: Events (surveys) table structure*
 
 | type | language | license | rightsHolder | ownerInstitutionCode | eventID | samplingProtocol | sampleSizeValue | sampleSizeUnit | samplingEffort | eventDate | eventTime | locationID | continent | country | countryCode | county | locality | decimalLatitude | decimalLongitude | dynamicProperties | 
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |  -- |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |  -- |
 
 
 ***Table 3**: Occurences (counts) table structure*
