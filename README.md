@@ -23,10 +23,10 @@ Since 2000, [A Rocha Kenya](https://www.arocha.or.ke/) has been monitoring water
 
 |                            |Mida Creek  |Sabaki  |Combined |
 |:--------|:----------|:------|:------|
-|Number of surveys (events)  |105         |119     |224      |
-|Number of taxon recorded    |80          |108     |105      |
-|Number of observations      |2'205       |4'494   |6'699    |
-|Number of individual seen   |327'282     |543'149 |870'431  |
+|Number of surveys (events)  |121         |136     |257      |
+|Number of taxon recorded    |82          |125     |105      |
+|Number of observations      |2'535       |5'110   |7'645    |
+|Number of individual seen   |363'697     |619'970 |983'667  |
  
 **Purposes:**
 - Monitoring waterbird populations at these two key migratory stopover and non-breeding sites
@@ -69,9 +69,9 @@ The Ramsar Convention on Wetlands defines waterbirds as any "species of bird tha
 
 Taxa are recorded at the species level with the exception of the Heuglin's Gull (*larus fuscus heuglini*) and Baltic Gull (*Larus fuscus fuscus*). Whenever a bird could not be safely identified at the species level, the identification was done as slash (e.g. Lesser/Greater Sand Plover), genus, family, order or even as *Aves sp.*.
 
-Our dataset contains **110** species and **6** at other taxon levels (subspecies, family, slash etc.) belonging to **22** families.
+Our dataset contains **110** species and **8** at other taxon levels (subspecies, family, slash etc.) belonging to **22** families.
 
-The `taxonID` used is the species code from the [eBird/Clements Checklist of Birds of the World: v2019](https://www.birds.cornell.edu/clementschecklist/download/).
+The `taxonID` used is the species code from the [eBird/Clements Checklist of Birds of the World: v2023](https://www.birds.cornell.edu/clementschecklist/download/).
 
 ### Taxonomic ranks
 
@@ -85,7 +85,7 @@ The `taxonID` used is the species code from the [eBird/Clements Checklist of Bir
 
 
 ## Temporal coverage
-The temporal coverage is **1998-10-29 - 2020-12-09**.
+The temporal coverage is **1998-10-29 - 2024-02-23**.
 
 ### Content providers
 
