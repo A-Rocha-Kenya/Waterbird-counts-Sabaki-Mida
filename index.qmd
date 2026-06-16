@@ -1,0 +1,178 @@
+---
+title: "Dataset Overview"
+page-layout: full
+---
+
+```{r}
+library(xml2)
+library(jsonlite)
+
+eml_lines <- readLines("data/derived/dwc/eml-waterbird_counts_sabaki_mida.xml", warn = FALSE)
+eml_lines <- gsub(
+  "&(?!(amp;|lt;|gt;|quot;|apos;|#))",
+  "&amp;",
+  eml_lines,
+  perl = TRUE
+)
+eml <- read_xml(paste(eml_lines, collapse = "\n"))
+title_text <- xml_text(xml_find_first(
+  eml,
+  "//*[local-name()='dataset']/*[local-name()='title']"
+))
+creator_nodes <- xml_find_all(
+  eml,
+  "//*[local-name()='dataset']/*[local-name()='creator']"
+)
+creators <- vapply(
+  creator_nodes,
+  function(node) {
+    given <- xml_text(xml_find_first(node, ".//*[local-name()='givenName']"))
+    sur <- xml_text(xml_find_first(node, ".//*[local-name()='surName']"))
+    paste(given, sur)
+  },
+  character(1)
+)
+
+abstract_paras <- xml_find_all(
+  eml,
+  "//*[local-name()='dataset']/*[local-name()='abstract']/*[local-name()='para']"
+) |>
+  xml_text()
+
+pub_date <- xml_text(xml_find_first(
+  eml,
+  "//*[local-name()='dataset']/*[local-name()='pubDate']"
+))
+doi_url <- xml_find_all(
+  eml,
+  "//*[local-name()='dataset']/*[local-name()='alternateIdentifier']"
+) |>
+  xml_text() |>
+  (\(x) x[grepl("^https://doi.org/", x)][1])()
+
+begin_date <- xml_text(xml_find_first(
+  eml,
+  "//*[local-name()='beginDate']/*[local-name()='calendarDate']"
+))
+end_date <- xml_text(xml_find_first(
+  eml,
+  "//*[local-name()='endDate']/*[local-name()='calendarDate']"
+))
+west <- xml_text(xml_find_first(eml, "//*[local-name()='westBoundingCoordinate']"))
+east <- xml_text(xml_find_first(eml, "//*[local-name()='eastBoundingCoordinate']"))
+north <- xml_text(xml_find_first(eml, "//*[local-name()='northBoundingCoordinate']"))
+south <- xml_text(xml_find_first(eml, "//*[local-name()='southBoundingCoordinate']"))
+
+latest_events <- list.files(
+  "data/derived/dwc",
+  pattern = "^events_\\d{4}-\\d{2}-\\d{2}\\.csv$",
+  full.names = FALSE
+)
+latest_events <- latest_events[order(latest_events, decreasing = TRUE)][1]
+
+latest_occurrences <- list.files(
+  "data/derived/dwc",
+  pattern = "^occurrences_\\d{4}-\\d{2}-\\d{2}\\.csv$",
+  full.names = FALSE
+)
+latest_occurrences <- latest_occurrences[order(latest_occurrences, decreasing = TRUE)][1]
+
+summary_cards <- jsonlite::fromJSON("data/derived/dashboard/summary_cards.json")
+```
+
+::: {.hero}
+# `r title_text`
+
+Long-term waterbird monitoring data from Sabaki River Mouth and Mida Creek, maintained by A Rocha Kenya. This page is the entry point; the numbered scripts contain the executable data checks and export steps.
+
+```{r, results="asis"}
+cat(
+  paste0(
+    '<div class="hero-links">',
+    '<a class="hero-link" href="', doi_url, '">GBIF DOI</a>',
+    '<a class="hero-link" href="dashboard/">Interactive dashboard</a>',
+    '<a class="hero-link" href="script/01_data_checks.html">01 Data checks</a>',
+    '<a class="hero-link" href="script/02_export_outputs.html">02 Export outputs</a>',
+    '</div>'
+  )
+)
+```
+:::
+
+::: {.overview-grid}
+::: {.overview-card}
+**Coverage**
+
+`r begin_date` to `r end_date`
+:::
+
+::: {.overview-card}
+**Surveys**
+
+`r summary_cards$events`
+:::
+
+::: {.overview-card}
+**Taxa**
+
+`r summary_cards$taxa`
+:::
+
+::: {.overview-card}
+**Individuals**
+
+`r scales::comma(summary_cards$individuals)`
+:::
+:::
+
+## Use the Dataset
+
+::: {.link-grid}
+::: {.link-card}
+### Explore
+
+[Open the dashboard](dashboard/) for filtering by site, year, month, and taxon.
+:::
+
+::: {.link-card}
+### Verify
+
+[Review the data checks script](script/01_data_checks.html) before using the export tables.
+:::
+
+::: {.link-card}
+### Reproduce
+
+[Read the export script](script/02_export_outputs.html) to see how Darwin Core files, dashboard JSON, and EML fields are generated.
+:::
+:::
+
+## Current Export
+
+The current metadata record was refreshed on `r pub_date`. The latest Darwin Core files are:
+
+```{r, results="asis"}
+cat(
+  paste(
+    c(
+      paste0("- [Events table](data/derived/dwc/", latest_events, ")"),
+      paste0("- [Occurrences table](data/derived/dwc/", latest_occurrences, ")"),
+      "- [EML metadata](data/derived/dwc/eml-waterbird_counts_sabaki_mida.xml)",
+      "- [Field notebook instructions](assets/Notebook_Instruction.pdf)"
+    ),
+    collapse = "\n"
+  )
+)
+```
+
+## Metadata Source
+
+The homepage title, creators, abstract summary, DOI, publication date, temporal coverage, and bounding box are read from the generated EML XML file in `data/derived/dwc/`.
+
+**Creators:** `r paste(creators, collapse = ", ")`
+
+**Bounding box:** `r south` to `r north` latitude; `r west` to `r east` longitude.
+
+```{r, results="asis"}
+cat(abstract_paras[1])
+```

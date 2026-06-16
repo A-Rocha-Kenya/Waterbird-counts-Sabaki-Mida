@@ -1,0 +1,185 @@
+---
+title: "01 Data checks"
+author: "Raphaël Nussbaumer"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    code-summary: "Show code"
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r setup, include=FALSE}
+source(here::here("R", "load_data.R"))
+source(here::here("R", "load_helper.R"))
+
+load_helper()
+data_objects <- load_data()
+list2env(data_objects, envir = knitr::knit_global())
+```
+
+## Introduction
+
+This document assembles the core quality checks used before publishing the waterbird count dataset for Sabaki River Mouth and Mida Creek.
+
+## Basic statistics
+
+```{r basic-statistics}
+summary_table <- bind_rows(
+  counts |> mutate(site_original = site),
+  counts |> mutate(site_original = site, site = "Combined")
+) |>
+  group_by(site) |>
+  summarise(
+    n_survey = n_distinct(date, site_original),
+    n_taxon = n_distinct(common_name),
+    n_observation = n(),
+    n_individual = sum(count, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+show_table(
+  summary_table,
+  caption = htmltools::tags$caption(
+    "Summary of surveys, taxa, observations, and individuals."
+  )
+)
+```
+
+## Quality control
+
+### Assessment 1: One metadata record per event
+
+```{r qc-event-metadata}
+event_metadata_check <- counts |>
+  group_by(date, site) |>
+  summarise(
+    n_start_time = n_distinct(start_time),
+    n_end_time = n_distinct(end_time),
+    n_coverage = n_distinct(coverage),
+    n_method = n_distinct(method),
+    n_water = n_distinct(water),
+    n_tidal = n_distinct(tidal),
+    n_weather = n_distinct(weather),
+    n_disturbed = n_distinct(disturbed),
+    n_participants = n_distinct(participants),
+    .groups = "drop"
+  ) |>
+  filter(if_any(starts_with("n_"), ~ .x > 1))
+
+show_check(event_metadata_check)
+```
+
+### Assessment 2: Missing species name or count
+
+```{r qc-missing-values}
+missing_count_check <- counts |> filter(is.na(count))
+missing_name_check <- counts |> filter(is.na(common_name))
+
+show_check(missing_count_check, "No missing counts found.")
+cat("\n\n")
+show_check(missing_name_check, "No missing species names found.")
+
+stop_if_issues(
+  missing_count_check,
+  c(
+    "Missing counts found in the source data.",
+    "x" = "Fix missing `count` values before exporting Darwin Core files."
+  )
+)
+
+stop_if_issues(
+  missing_name_check,
+  c(
+    "Missing species names found in the source data.",
+    "x" = "Fix missing `common_name` values before exporting Darwin Core files."
+  )
+)
+```
+
+### Assessment 3: Species name matches the lookup table
+
+```{r qc-species-match}
+species_lookup_check <- counts |>
+  distinct(common_name) |>
+  mutate(
+    common_name_key = stringr::str_to_lower(stringr::str_squish(common_name))
+  ) |>
+  left_join(species_lookup, by = "common_name_key") |>
+  filter(is.na(scientific_name))
+
+show_check(species_lookup_check)
+
+stop_if_issues(
+  species_lookup_check,
+  c(
+    "Species names without a match in the lookup table were found.",
+    "x" = "Fix the species lookup mismatch before exporting Darwin Core files."
+  )
+)
+```
+
+
+### Assessment 4: Taxon IDs match the avilistr reference list
+
+```{r qc-avilistr-taxon-id}
+taxon_id_check <- counts |>
+  distinct(common_name_key) |>
+  left_join(species_lookup_join, by = "common_name_key") |>
+  distinct(vernacular_name_source, taxon_id) |>
+  filter(!is.na(taxon_id)) |>
+  anti_join(avilist_lookup, by = "taxon_id")
+
+show_check(taxon_id_check)
+```
+
+### Assessment 5: Duplicate taxon records within one event
+
+```{r qc-duplicate-observations}
+duplicate_observation_check <- counts |>
+  count(date, site, common_name, name = "n_observation") |>
+  filter(n_observation > 1)
+
+show_check(duplicate_observation_check)
+```
+
+## Records excluded from the export
+
+```{r export-subset}
+excluded_missing_count <- counts |>
+  filter(is.na(count)) |>
+  transmute(site, date, common_name, reason = "Missing count")
+
+excluded_missing_name <- counts |>
+  filter(is.na(common_name)) |>
+  transmute(site, date, common_name, reason = "Missing common_name")
+
+excluded_duplicate_observation <- counts |>
+  add_count(date, site, common_name, name = "n_observation") |>
+  filter(n_observation > 1) |>
+  transmute(
+    site,
+    date,
+    common_name,
+    reason = "Duplicate date + site + common_name"
+  )
+
+excluded_export_records <- bind_rows(
+  excluded_missing_count,
+  excluded_missing_name,
+  excluded_duplicate_observation
+) |>
+  distinct()
+
+show_table(
+  excluded_export_records,
+  caption = htmltools::tags$caption(
+    "Records temporarily excluded from the Darwin Core export."
+  )
+)
+```

@@ -1,0 +1,194 @@
+[
+  {
+    "site": "Mida Creek",
+    "month": 1,
+    "monthLabel": "Jan",
+    "observations": 515,
+    "individuals": 112252,
+    "taxa": 53
+  },
+  {
+    "site": "Mida Creek",
+    "month": 2,
+    "monthLabel": "Feb",
+    "observations": 266,
+    "individuals": 47717,
+    "taxa": 47
+  },
+  {
+    "site": "Mida Creek",
+    "month": 3,
+    "monthLabel": "Mar",
+    "observations": 304,
+    "individuals": 48370,
+    "taxa": 52
+  },
+  {
+    "site": "Mida Creek",
+    "month": 4,
+    "monthLabel": "Apr",
+    "observations": 295,
+    "individuals": 30587,
+    "taxa": 48
+  },
+  {
+    "site": "Mida Creek",
+    "month": 5,
+    "monthLabel": "May",
+    "observations": 273,
+    "individuals": 13991,
+    "taxa": 50
+  },
+  {
+    "site": "Mida Creek",
+    "month": 6,
+    "monthLabel": "Jun",
+    "observations": 150,
+    "individuals": 6150,
+    "taxa": 37
+  },
+  {
+    "site": "Mida Creek",
+    "month": 7,
+    "monthLabel": "Jul",
+    "observations": 137,
+    "individuals": 4569,
+    "taxa": 34
+  },
+  {
+    "site": "Mida Creek",
+    "month": 8,
+    "monthLabel": "Aug",
+    "observations": 182,
+    "individuals": 10172,
+    "taxa": 36
+  },
+  {
+    "site": "Mida Creek",
+    "month": 9,
+    "monthLabel": "Sep",
+    "observations": 306,
+    "individuals": 34993,
+    "taxa": 45
+  },
+  {
+    "site": "Mida Creek",
+    "month": 10,
+    "monthLabel": "Oct",
+    "observations": 224,
+    "individuals": 33537,
+    "taxa": 46
+  },
+  {
+    "site": "Mida Creek",
+    "month": 11,
+    "monthLabel": "Nov",
+    "observations": 162,
+    "individuals": 37542,
+    "taxa": 44
+  },
+  {
+    "site": "Mida Creek",
+    "month": 12,
+    "monthLabel": "Dec",
+    "observations": 212,
+    "individuals": 34257,
+    "taxa": 45
+  },
+  {
+    "site": "Sabaki",
+    "month": 1,
+    "monthLabel": "Jan",
+    "observations": 932,
+    "individuals": 147636,
+    "taxa": 85
+  },
+  {
+    "site": "Sabaki",
+    "month": 2,
+    "monthLabel": "Feb",
+    "observations": 402,
+    "individuals": 67606,
+    "taxa": 69
+  },
+  {
+    "site": "Sabaki",
+    "month": 3,
+    "monthLabel": "Mar",
+    "observations": 492,
+    "individuals": 91313,
+    "taxa": 73
+  },
+  {
+    "site": "Sabaki",
+    "month": 4,
+    "monthLabel": "Apr",
+    "observations": 432,
+    "individuals": 43555,
+    "taxa": 72
+  },
+  {
+    "site": "Sabaki",
+    "month": 5,
+    "monthLabel": "May",
+    "observations": 487,
+    "individuals": 24164,
+    "taxa": 78
+  },
+  {
+    "site": "Sabaki",
+    "month": 6,
+    "monthLabel": "Jun",
+    "observations": 434,
+    "individuals": 26490,
+    "taxa": 77
+  },
+  {
+    "site": "Sabaki",
+    "month": 7,
+    "monthLabel": "Jul",
+    "observations": 517,
+    "individuals": 19190,
+    "taxa": 76
+  },
+  {
+    "site": "Sabaki",
+    "month": 8,
+    "monthLabel": "Aug",
+    "observations": 529,
+    "individuals": 39134,
+    "taxa": 77
+  },
+  {
+    "site": "Sabaki",
+    "month": 9,
+    "monthLabel": "Sep",
+    "observations": 557,
+    "individuals": 72355,
+    "taxa": 75
+  },
+  {
+    "site": "Sabaki",
+    "month": 10,
+    "monthLabel": "Oct",
+    "observations": 475,
+    "individuals": 62310,
+    "taxa": 72
+  },
+  {
+    "site": "Sabaki",
+    "month": 11,
+    "monthLabel": "Nov",
+    "observations": 446,
+    "individuals": 67666,
+    "taxa": 74
+  },
+  {
+    "site": "Sabaki",
+    "month": 12,
+    "monthLabel": "Dec",
+    "observations": 297,
+    "individuals": 39520,
+    "taxa": 65
+  }
+]

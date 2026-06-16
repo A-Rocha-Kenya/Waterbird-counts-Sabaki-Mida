@@ -1,0 +1,385 @@
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:dc="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://rs.gbif.org/schema/eml-gbif-profile/1.3/eml.xsd" packageId="e5f82c34-0dbb-46a4-9c45-faccc8930034/v1.3" system="http://gbif.org" scope="system" xml:lang="en">
+  <dataset>
+    <alternateIdentifier>e5f82c34-0dbb-46a4-9c45-faccc8930034</alternateIdentifier>
+    <alternateIdentifier>https://doi.org/10.15468/9hs9vv</alternateIdentifier>
+    <alternateIdentifier>http://ipt.museums.or.ke/ipt/resource?r=waterbird_counts_sabaki_mida</alternateIdentifier>
+    <title>Waterbird Counts at Sabaki River Mouth and Mida Creek</title>
+    <creator>
+      <individualName>
+        <givenName>Raphaël</givenName>
+        <surName>Nussbaumer</surName>
+      </individualName>
+      <organizationName>A Rocha Kenya</organizationName>
+      <positionName>Research Associate</positionName>
+      <electronicMailAddress>raphael.nussbaumer@arocha.org</electronicMailAddress>
+      <userId directory="http://orcid.org/">0000-0002-8185-1020</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Kirao</givenName>
+        <surName>Lennox</surName>
+      </individualName>
+      <organizationName>A Rocha Kenya</organizationName>
+      <positionName>Research Scientist</positionName>
+      <electronicMailAddress>lennox.kirao@arocha.org</electronicMailAddress>
+      <userId directory="http://orcid.org/">0000-0002-3548-5787</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Albert</givenName>
+        <surName>Baya</surName>
+      </individualName>
+      <organizationName>A Rocha Kenya</organizationName>
+      <positionName>Research Technician</positionName>
+      <electronicMailAddress>albert_baya@yahoo.com</electronicMailAddress>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Jaap</givenName>
+        <surName>Gijsbertsen</surName>
+      </individualName>
+      <organizationName>A Rocha Kenya</organizationName>
+      <electronicMailAddress>jaap.gijsbertsen@arocha.org</electronicMailAddress>
+      <userId directory="https://www.linkedin.com/profile/view?id=">jaapg</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Andrew</givenName>
+        <surName>Kinzer</surName>
+      </individualName>
+      <organizationName>A Rocha Kenya</organizationName>
+      <positionName>Research Programs Coordinator</positionName>
+      <electronicMailAddress>andrew.kinzer@gmail.com</electronicMailAddress>
+      <userId directory="http://orcid.org/">0000-0001-9521-5175</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Colin</givenName>
+        <surName>Jackson</surName>
+      </individualName>
+      <organizationName>A Rocha Kenya</organizationName>
+      <positionName>Director</positionName>
+      <electronicMailAddress>colin.jackson@arocha.org</electronicMailAddress>
+      <userId directory="http://orcid.org/">0000-0003-2280-1397</userId>
+    </creator>
+    <metadataProvider>
+      <individualName>
+        <givenName>Raphaël</givenName>
+        <surName>Nussbaumer</surName>
+      </individualName>
+      <organizationName>A Rocha Kenya</organizationName>
+      <positionName>Research Associate</positionName>
+      <electronicMailAddress>raphael.nussbaumer@arocha.org</electronicMailAddress>
+      <userId directory="http://orcid.org/">0000-0002-8185-1020</userId>
+    </metadataProvider>
+    <metadataProvider>
+      <individualName>
+        <givenName>Colin</givenName>
+        <surName>Jackson</surName>
+      </individualName>
+      <organizationName>A Rocha Kenya</organizationName>
+      <positionName>Director</positionName>
+      <userId directory="http://orcid.org/">0000-0003-2280-1397</userId>
+    </metadataProvider>
+    <pubDate>2026-06-16</pubDate>
+    <language>ENGLISH</language>
+    <abstract>
+      <para>Since 2000, A Rocha Kenya has been monitoring waterbirds on a regular basis at two key sites on the coast of Kenya: Sabaki River Mouth (3°10'03.4"S 40°08'41.7"E) and Mida Creek (3°20'07.2"S 39°58'26.4"E).</para>
+      <para>The dataset includes 306 surveys (145 at Mida Creek and 161 at Sabaki River Mouth), 121 recorded taxa, 9,028 observations, and 1,115,428 individuals counted.</para>
+      <para>Objectives of the monitoring are to track waterbird populations at two key migratory stopover and non-breeding sites, assess short- and long-term trends in wader populations, describe seasonal patterns in migrant arrival and departure, and study the effects of climate change, habitat change, and human disturbance.</para>
+      <para>This dataset is published as a Darwin Core Archive using a sampling event dataset type.</para>
+      <para>The metadata and data are generated from the field spreadsheet with two Quarto scripts: script/01_data_checks.qmd checks the source data, and script/02_export_outputs.qmd exports the Darwin Core files, EML metadata, and dashboard JSON files.</para>
+      <para>The repository is available at https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/ and the project website is available at https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/.</para>
+      <para>Event table fields: eventID, samplingProtocol, sampleSizeValue, sampleSizeUnit, samplingEffort, eventDate, eventTime, locationID, continent, country, countryCode, county, locality, decimalLatitude, decimalLongitude, geodeticDatum, footprintWKT, footprintSRS, dynamicProperties.</para>
+      <para>Occurrence table fields: basisOfRecord, eventID, occurrenceID, individualCount, taxonID, scientificName, scientificNameAuthorship, kingdom, phylum, class, order, family, genus, taxonRank, vernacularName, occurrenceRemarks.</para>
+      <para>The counts are organized by A Rocha Kenya. The list of participants in the surveys is incomplete and includes staff members, scribes, and volunteers who contributed to the long-term monitoring effort.</para>
+    </abstract>
+    <keywordSet>
+      <keyword>bird</keyword>
+      <keyword>waterbird</keyword>
+      <keyword>Kenya</keyword>
+      <keyword>coast</keyword>
+      <keyword>count</keyword>
+      <keyword>ornithology</keyword>
+      <keyword>survey</keyword>
+      <keyword>Africa</keyword>
+      <keyword>wetland</keyword>
+      <keyword>estuary</keyword>
+      <keyword>river mouth</keyword>
+      <keyword>creek</keyword>
+      <keyword>East Africa</keyword>
+      <keyword>monitoring</keyword>
+      <keyword>climate</keyword>
+      <keyword>population</keyword>
+      <keyword>trend</keyword>
+      <keywordThesaurus>Free-text keywords</keywordThesaurus>
+    </keywordSet>
+    <intellectualRights>
+      <para>This work is licensed under a Creative Commons Attribution Non Commercial (CC BY-NC 4.0) License: https://creativecommons.org/licenses/by-nc/4.0/.</para>
+    </intellectualRights>
+    <licensed>
+      <licenseName>Creative Commons Attribution Non Commercial 4.0 International</licenseName>
+      <url>https://spdx.org/licenses/CC-BY-NC-4.0.html</url>
+      <identifier>CC-BY-NC-4.0</identifier>
+    </licensed>
+    <distribution scope="document">
+      <online>
+        <url function="information">https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/</url>
+      </online>
+    </distribution>
+    <distribution scope="document">
+      <online>
+        <url function="download">http://ipt.museums.or.ke/ipt/archive.do?r=waterbird_counts_sabaki_mida</url>
+      </online>
+    </distribution>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>Located on the coast of Kenya, Sabaki River Mouth and Mida Creek represent key hotspots for waterbirds, especially for wintering and migrating waders. See the study extent and sampling methods for more details.</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>39.96709</westBoundingCoordinate>
+          <eastBoundingCoordinate>40.14167</eastBoundingCoordinate>
+          <northBoundingCoordinate>-3.16658</northBoundingCoordinate>
+          <southBoundingCoordinate>-3.330189</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>1998-10-29</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2026-05-11</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+      <taxonomicCoverage>
+        <generalTaxonomicCoverage>The Ramsar Convention on Wetlands defines waterbirds as any "species of bird that are ecologically dependent on wetlands". This term is further refined in the second edition of Waterfowl Population Estimates (Rose, P.M. and Scott, D.A., 1997), as being all species of the families Gaviidae, Podicipedidae, Pelecanidae, Phalacrocoracidae, Anhingidae, Ardeidae, Balaenicipitidae, Scopidae, Ciconiidae, Threskiornithidae, Phoenicopteridae, Anhimidae, Anatidae, Pedionomidae, Gruidae, Aramidae, Rallidae, Heliornithidae, Eurypygidae, Jacanidae, Rostratulidae, Dromadidae, Haematopodidae, Ibidorhynchidae, Recurvirostridae, Burhinidae, Glareolidae, Charadriidae, Scolopacidae, Thinocoridae, Laridae, Sternidae and Rynchopidae.
+
+Taxa are recorded at the species level with the exception of the Heuglin's Gull (Larus fuscus heuglini) and Baltic Gull (Larus fuscus fuscus). Whenever a bird could not be safely identified at the species level, the identification was done as slash taxa, genus, family, order or even as Aves sp.
+
+The dataset contains 114 species and 7 taxa at other taxonomic levels (subspecies, family, slash taxa, etc.) belonging to 25 families.
+
+The taxonID follows the Cornell Lab species code used in the avilistr reference list (avilistr::avilist_2025).</generalTaxonomicCoverage>
+        <taxonomicClassification>
+          <taxonRankName>kingdom</taxonRankName>
+          <taxonRankValue>Animalia</taxonRankValue>
+          <commonName>animals</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>phylum</taxonRankName>
+          <taxonRankValue>Chordata</taxonRankValue>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>class</taxonRankName>
+          <taxonRankValue>Aves</taxonRankValue>
+          <commonName>birds</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Scolopacidae</taxonRankValue>
+          <commonName>Sandpipers and Allies</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Laridae</taxonRankValue>
+          <commonName>Gulls, Terns and Skimmers</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Charadriidae</taxonRankValue>
+          <commonName>Plovers and Lapwings</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Phoenicopteridae</taxonRankValue>
+          <commonName>Flamingos</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Dromadidae</taxonRankValue>
+          <commonName>Crab-plover</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Anatidae</taxonRankValue>
+          <commonName>Ducks and Geese</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Glareolidae</taxonRankValue>
+          <commonName>Coursers and Pratincoles</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Accipitridae</taxonRankValue>
+          <commonName>Hawks, Vultures, Buzzards, Eagles and Allies</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Threskiornithidae</taxonRankValue>
+          <commonName>Ibises and Spoonbills</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Ardeidae</taxonRankValue>
+          <commonName>Herons, Egrets and Bitterns</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Ciconiidae</taxonRankValue>
+          <commonName>Storks</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Pelecanidae</taxonRankValue>
+          <commonName>Pelicans</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Recurvirostridae</taxonRankValue>
+          <commonName>Stilts and Avocets</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Haematopodidae</taxonRankValue>
+          <commonName>Oystercatchers</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Alcedinidae</taxonRankValue>
+          <commonName>Kingfishers</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Burhinidae</taxonRankValue>
+          <commonName>Thick-knees</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Phalacrocoracidae</taxonRankValue>
+          <commonName>Cormorants</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Pandionidae</taxonRankValue>
+          <commonName>Ospreys</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Rostratulidae</taxonRankValue>
+          <commonName>Painted-snipes</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Balaenicipitidae</taxonRankValue>
+          <commonName>Shoebill</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Jacanidae</taxonRankValue>
+          <commonName>Jacanas</commonName>
+        </taxonomicClassification>
+        <taxonomicClassification>
+          <taxonRankName>family</taxonRankName>
+          <taxonRankValue>Rallidae</taxonRankValue>
+          <commonName>Rails, Crakes and Gallinules</commonName>
+        </taxonomicClassification>
+      </taxonomicCoverage>
+    </coverage>
+    <maintenance>
+      <description>
+        <para>The dataset is updated as new counts are transcribed, checked, and exported to Darwin Core.</para>
+      </description>
+      <maintenanceUpdateFrequency>irregular</maintenanceUpdateFrequency>
+    </maintenance>
+    <contact>
+      <individualName>
+        <givenName>Raphaël</givenName>
+        <surName>Nussbaumer</surName>
+      </individualName>
+      <organizationName>A Rocha Kenya</organizationName>
+      <positionName>Research Associate</positionName>
+      <electronicMailAddress>raphael.nussbaumer@arocha.org</electronicMailAddress>
+      <userId directory="http://orcid.org/">0000-0002-8185-1020</userId>
+    </contact>
+    <contact>
+      <individualName>
+        <givenName>Colin</givenName>
+        <surName>Jackson</surName>
+      </individualName>
+      <organizationName>A Rocha Kenya</organizationName>
+      <positionName>Director</positionName>
+      <electronicMailAddress>colin.jackson@arocha.org</electronicMailAddress>
+      <userId directory="http://orcid.org/">0000-0003-2280-1397</userId>
+    </contact>
+    <methods>
+      <methodStep>
+        <description>
+          <para>The conversion to the GBIF standard is performed with a Quarto script.</para>
+        </description>
+      </methodStep>
+      <sampling>
+        <studyExtent>
+          <description>
+            <para>Sabaki River Mouth (IBA: 6409, http://datazone.birdlife.org/site/factsheet/6409) is where the Athi-Galana-Sabaki river system flows into the Indian Ocean some 5 km north of Malindi. Due to the combined action of ocean currents and freshwater flow from the highlands bringing high levels of silt, a diverse array of habitats has formed. These include open sandy beach, sandbanks, mudflats, salt marshes, vegetated and bare sand dunes, seasonal and permanent freshwater pools, mangroves, grassland, and coastal scrub. Since the mid-1970s, a high level of silt deposition has extended the river mouth into the ocean and created the wide open mud and sand flats that attract large numbers of waders. Until c. 2000, there were only some degraded patches of mangrove forest slightly upstream. With the siltation, however, conditions became ideal for mangroves, and an area of over 12 ha of mangrove forest grew on the northern banks of the river mouth. Seasonal wetlands form during seasons of good rain on the extension of low sand dunes between the beach and the old high sand dunes and provide breeding habitat for some birds such as Black-winged Stilts. The sandflats and beach are regularly used as a roost for large numbers of gulls and terns, which forage at sea and come to the relative safety of the river mouth to rest.</para>
+            <para>A series of high (up to c. 25 m) wind-blown sand dunes extend about 5 km north and 3 km south of the river. These dunes form an important aquifer and as a result among the dunes are pools and wells of fresh water filtered by the sand and separate from the ocean.</para>
+            <para>"Sabaki" is the name of the final few kilometres of the river that starts in the Ngong Hills west of Nairobi as the Athi River and is known as the Galana River through Ukambani and Tsavo East National Park.</para>
+            <para>Mida Creek (IBA: 6406, http://datazone.birdlife.org/site/factsheet/6406) is a biologically important and complex tidal marine multi-habitat ecosystem supporting adjacent local communities by providing food, building materials, and tourism revenue. The total intertidal area of this marine inlet is approximately 580 ha; there is no freshwater surface inflow, only underground seepage. The majority of the creek is fringed with a diverse assemblage of mangrove species including Ceriops tagal, Rhizophora mucronata, Bruguiera gymnorrhiza, Avicennia marina, Sonneratia alba, and Xylocarpus benadirensis. The site is disturbed by artisanal fishermen, both for fishing and bait collecting, and by groups of tourists brought into the creek by boat and on foot from the inland side. Historically, however, disturbance levels have not been high enough to have a major detectable influence on the foraging behaviour of waders. Major concerns for the creek include the negative knock-on effects of overfishing and exploitation of the marine environment and mangrove forests. Mangrove roots are frequently cut and mud dug up in order to reach fishing bait, which clearly destabilises the mangroves and threatens their survival.</para>
+            <para>Mida Creek is an important passage and non-breeding area for Palaearctic migrant waders, with counts of over 8,000 waders. The populations of Greater and Lesser Sand Plover and Crab-plovers here are internationally important.</para>
+          </description>
+        </studyExtent>
+        <samplingDescription>
+          <para>Counts are carried out every month on a date and time with suitable tides (low tide at Sabaki and a neap high of 2.3 m to 2.5 m at Mida Creek). The team is composed of a staff member from the A Rocha Kenya Science Department, a scribe, and usually several volunteers. At Sabaki, the same route is followed on foot along the river bank to the river mouth, while at Mida the counts are performed from a stationary point. Binoculars, telescopes, and tally counters are used. The scribe writes in a notebook, listing the species with all counts announced during the survey and, at the end, tallies the counts and records key metadata such as start and end times, area covered, effects of weather on the count, and bird disturbance. A copy of the instructions is available at https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/blob/main/assets/Notebook_Instruction.pdf. After the count, the staff member enters the data into an Excel spreadsheet, checks the totals, and assigns a count precision.</para>
+        </samplingDescription>
+      </sampling>
+      <qualityControl>
+        <description>
+          <para>A rapid quality-control review has been carried out on this dataset, but errors may still be present. Contact raphael.nussbaumer@arocha.org if you have questions.</para>
+        </description>
+      </qualityControl>
+    </methods>
+    <project id="BID-AF2020-140-REG">
+      <title>Raising the profile of data for the conservation of four forested African landscapes</title>
+      <personnel>
+        <individualName>
+          <givenName>Raphaël</givenName>
+          <surName>Nussbaumer</surName>
+        </individualName>
+        <userId directory="http://orcid.org/">0000-0002-8185-1020</userId>
+        <role>processor</role>
+      </personnel>
+      <abstract>
+        <para>Project page: https://www.gbif.org/project/BID-AF2020-140-REG/raising-the-profile-of-data-for-the-conservation-of-four-forested-african-landscapes#about</para>
+      </abstract>
+      <funding>
+        <para>Publication of this dataset was made possible through the BID programme led by GBIF. The project was funded by the JRS Biodiversity Foundation through the project Raising the profile of data for the conservation of four forested African landscapes: https://www.gbif.org/project/BID-AF2020-140-REG/raising-the-profile-of-data-for-the-conservation-of-four-forested-african-landscapes.</para>
+      </funding>
+    </project>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2026-06-16T00:00:00+02:00</dateStamp>
+        <hierarchyLevel>dataset</hierarchyLevel>
+        <citation>Nussbaumer R, Lennox K, Baya A, Gijsbertsen J, Kinzer A, Jackson C (2026): Waterbird Counts at Sabaki River Mouth and Mida Creek. A Rocha Kenya. Dataset/SamplingEvent. https://doi.org/10.15468/9hs9vv</citation>
+        <bibliography>
+          <citation identifier="https://doi.org/10.2989/00306525.2015.1030793">England, K. J. H., Jackson, C., &amp; Hockey, P. A. R. (2015). A novel methodology for the rapid assessment of waterbird vulnerability to disturbance. Ostrich, 86(1-2), 75-85.</citation>
+          <citation>Fishpool, L. D. C., Evans, M. I., &amp; others. (2001). Important Bird Areas in Africa and associated islands: Priority sites for conservation. BirdLife International Cambridge.</citation>
+          <citation identifier="https://sora.unm.edu/sites/default/files/15_HarebottledEtAl2005.pdf">Harebottle, D. M., Jackson, C. H. W., &amp; Oschadleus, H. D. (2005). Wader ringing in coastal Kenya - results and overview from the first AFRING waterbird ringing course. Wader Study Group Bulletin, 106, 55-57.</citation>
+          <citation identifier="https://doi.org/10.1080/00306525.1996.9633778">Hockey, P. A. R., Plagényi, É. E., Turpie, J. K., &amp; Phillips, T. E. (1996). Foraging behaviours of Crab Plovers Droma ardeola at Mida Creek, Kenya. Ostrich, 67(1), 33-44.</citation>
+          <citation identifier="https://www.arocha.or.ke/wp-content/uploads/sites/16/2016/08/7-Macroinvertebrate-communities-in-intertidal-mudflats-Sabaki-River-Mouth-A-Rocha-Kenya.pdf">Houte-howes, K. S. S. Van. (2005). Macroinvertebrate communities in intertidal mudflats at the Sabaki River Estuary, Kenya: An important habitat for resident and migratory shorebirds. Watamu.</citation>
+          <citation identifier="https://www.researchgate.net/publication/340104737_The_birds_of_Mida_Creek">Jackson, C. (2010). The Birds of Mida Creek, Kenya. Watamu.</citation>
+          <citation identifier="http://hdl.handle.net/1834/8344">Moragwa, G., Fondo, E., &amp; Okondo, J. (1996). Birds of Mida Creek (Vol. 26).</citation>
+          <citation identifier="https://doi.org/10.14284/175">Nasirwa, O., Oyugi, J., Jackson, C., Lens, L., Bennun, L., &amp; Seys, J. (1995). Surveys of waterbirds in Kenya, 1995: Lake Victoria wetlands, south Kenya coast and Tana River dams. Centre for Biodiversity Research Reports: Ornithology.</citation>
+          <citation identifier="https://doi.org/10.13140/RG.2.2.36630.57925">Nussbaumer, R., Lennox, K., &amp; Jackson, C. (2020). National Waterbird Counts Report Kenya, Coast.</citation>
+          <citation identifier="https://doi.org/10.2989/00306525.2012.680262">Otieno, N. E., Oyieke, H., Ogoma, M., &amp; Kochey, J. (2011). Bird assemblage patterns in relation to anthropogenic habitat modification around an East African estuary. Western Indian Ocean Journal of Marine Science, 10(2), 191-200.</citation>
+          <citation identifier="https://doi.org/10.1080/00306525.2002.11446744">Pearson, D. J., &amp; Serra, L. (2002). Biometrics, moult and migration of Grey Plovers Pluvialis squatarola, at Mida Creek, Kenya. Ostrich, 73(3-4), 143-146.</citation>
+          <citation>Rose, P. M., &amp; Scott, D. A. (1997). Waterfowl population estimates. Publication 44. Wetlands International, Wageningen, Netherlands.</citation>
+          <citation identifier="http://www.vliz.be/imisdocs/publications/ocrd/242054.pdf">Seys, J., Moragwa, G., Boera, P., &amp; Ngoa, M. (1995). Distribution and abundance of birds in tidal creeks and estuaries of the Kenyan coast between the Sabaki River and Gazi Bay. Scopus: Journal of East African Ornithology, 19, 47-60.</citation>
+          <citation identifier="https://doi.org/10.2989/00306525.2012.680262">Valle, S., Boitani, L., &amp; Maclean, I. M. D. (2012). Seasonal changes in abundances of waterbirds at Sabaki River Mouth (Malindi, Kenya), a key stopover site on the West Asian-East African Flyway. Ostrich, 83(1), 19-26.</citation>
+        </bibliography>
+        <dc:replaces>e5f82c34-0dbb-46a4-9c45-faccc8930034/v1.3.xml</dc:replaces>
+      </gbif>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>

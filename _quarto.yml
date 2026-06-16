@@ -1,0 +1,49 @@
+project:
+  type: website
+  output-dir: docs
+  execute-dir: project
+  render:
+    - index.qmd
+    - script/01_data_checks.qmd
+    - script/02_export_outputs.qmd
+  resources:
+    - assets/
+    - data/derived/dwc/
+    - data/derived/dashboard/
+
+website:
+  title: "Waterbird Counts at Sabaki River Mouth and Mida Creek"
+  site-url: "https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/"
+  repo-url: "https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida"
+  repo-actions: [source, issue]
+  navbar:
+    left:
+      - href: index.qmd
+        text: Overview
+      - href: script/01_data_checks.qmd
+        text: Data Checks
+      - href: script/02_export_outputs.qmd
+        text: Exports
+      - href: dashboard/
+        text: Dashboard
+    right:
+      - href: assets/Notebook_Instruction.pdf
+        text: Field Notebook
+      - icon: github
+        href: "https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida"
+  page-footer:
+    left: "A Rocha Kenya long-term waterbird monitoring dataset."
+    right: "[GBIF dataset](https://doi.org/10.15468/9hs9vv) · [Export script](script/02_export_outputs.html)"
+
+format:
+  html:
+    theme: sandstone
+    css: styles.css
+    toc: true
+    anchor-sections: true
+    link-external-newwindow: true
+
+execute:
+  echo: false
+  warning: false
+  message: false

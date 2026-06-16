@@ -1,0 +1,132 @@
+---
+title: "02 Export outputs"
+author: "Raphaël Nussbaumer"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    code-summary: "Show code"
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r setup, include=FALSE}
+source(here::here("R", "load_data.R"))
+source(here::here("R", "export_dwc.R"))
+source(here::here("R", "export_dashboard_json.R"))
+source(here::here("R", "load_helper.R"))
+
+load_helper()
+data_objects <- load_data()
+dwc_objects <- export_dwc(data_objects)
+
+list2env(data_objects, envir = knitr::knit_global())
+list2env(dwc_objects, envir = knitr::knit_global())
+```
+
+## Export DWC
+
+### Export event and occurrence tables
+
+```{r export-dwc-csv}
+dwc_csv_files <- export_dwc_csv(dwc_objects)
+
+tibble::tibble(
+  output = names(dwc_csv_files),
+  file = unname(dwc_csv_files)
+) |>
+  show_table(
+    caption = htmltools::tags$caption(
+      "Darwin Core CSV files written by the workflow."
+    )
+  )
+```
+
+```{r preview-events}
+show_table(
+  events |> head(),
+  caption = htmltools::tags$caption("Preview of the Darwin Core event table.")
+)
+```
+
+```{r preview-occurrences}
+show_table(
+  occurrences |> head(),
+  caption = htmltools::tags$caption(
+    "Preview of the Darwin Core occurrence table."
+  )
+)
+```
+
+### Export metadata
+
+```{r export-dwc-eml}
+dwc_eml_file <- export_dwc_eml(data_objects, dwc_objects)
+
+tibble::tibble(
+  output = "eml",
+  file = dwc_eml_file
+) |>
+  show_table(
+    caption = htmltools::tags$caption("Generated EML metadata file.")
+  )
+```
+
+```{r metadata-summary}
+metadata_summary <- tibble::tibble(
+  field = c(
+    "Publication date",
+    "Temporal range",
+    "Bounding box",
+    "Combined surveys",
+    "Combined taxa",
+    "Combined observations",
+    "Combined individuals"
+  ),
+  value = c(
+    as.character(export_date),
+    paste(dataset_summary$first_date, "to", dataset_summary$last_date),
+    paste(
+      "Lat",
+      bounding_box$south,
+      "to",
+      bounding_box$north,
+      "| Lon",
+      bounding_box$west,
+      "to",
+      bounding_box$east
+    ),
+    dataset_summary$n_survey_combined,
+    dataset_summary$n_taxon_combined,
+    dataset_summary$n_observation_combined,
+    scales::comma(dataset_summary$n_individual_combined)
+  )
+)
+
+show_table(
+  metadata_summary,
+  caption = htmltools::tags$caption(
+    "Fields refreshed in the generated EML metadata."
+  )
+)
+```
+
+## Export dashboard
+
+```{r export-dashboard-json}
+dashboard_files <- export_dashboard_json(dwc_objects)
+
+tibble::tibble(
+  output = names(dashboard_files),
+  file = unname(dashboard_files)
+) |>
+  show_table(
+    caption = htmltools::tags$caption(
+      "Dashboard JSON files written by the workflow."
+    )
+  )
+```

@@ -1,0 +1,366 @@
+[
+  {
+    "site": "Mida Creek",
+    "year": 1998,
+    "observations": 19,
+    "individuals": 4014,
+    "taxa": 19
+  },
+  {
+    "site": "Mida Creek",
+    "year": 1999,
+    "observations": 68,
+    "individuals": 9299,
+    "taxa": 29
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2000,
+    "observations": 50,
+    "individuals": 10150,
+    "taxa": 30
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2001,
+    "observations": 27,
+    "individuals": 5193,
+    "taxa": 27
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2004,
+    "observations": 25,
+    "individuals": 7097,
+    "taxa": 25
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2005,
+    "observations": 35,
+    "individuals": 7485,
+    "taxa": 24
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2006,
+    "observations": 22,
+    "individuals": 5666,
+    "taxa": 22
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2007,
+    "observations": 19,
+    "individuals": 6866,
+    "taxa": 19
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2008,
+    "observations": 27,
+    "individuals": 3177,
+    "taxa": 27
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2009,
+    "observations": 88,
+    "individuals": 22560,
+    "taxa": 37
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2010,
+    "observations": 41,
+    "individuals": 7616,
+    "taxa": 25
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2011,
+    "observations": 35,
+    "individuals": 8960,
+    "taxa": 27
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2012,
+    "observations": 80,
+    "individuals": 26051,
+    "taxa": 30
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2013,
+    "observations": 105,
+    "individuals": 22161,
+    "taxa": 29
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2014,
+    "observations": 260,
+    "individuals": 32085,
+    "taxa": 51
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2015,
+    "observations": 159,
+    "individuals": 13193,
+    "taxa": 38
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2016,
+    "observations": 26,
+    "individuals": 2957,
+    "taxa": 26
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2017,
+    "observations": 110,
+    "individuals": 11335,
+    "taxa": 36
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2018,
+    "observations": 218,
+    "individuals": 22078,
+    "taxa": 41
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2019,
+    "observations": 160,
+    "individuals": 17106,
+    "taxa": 43
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2020,
+    "observations": 300,
+    "individuals": 45412,
+    "taxa": 58
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2021,
+    "observations": 191,
+    "individuals": 24532,
+    "taxa": 42
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2022,
+    "observations": 214,
+    "individuals": 23470,
+    "taxa": 41
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2023,
+    "observations": 211,
+    "individuals": 18836,
+    "taxa": 40
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2024,
+    "observations": 226,
+    "individuals": 25508,
+    "taxa": 46
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2025,
+    "observations": 238,
+    "individuals": 22935,
+    "taxa": 47
+  },
+  {
+    "site": "Mida Creek",
+    "year": 2026,
+    "observations": 72,
+    "individuals": 8395,
+    "taxa": 31
+  },
+  {
+    "site": "Sabaki",
+    "year": 2000,
+    "observations": 46,
+    "individuals": 8247,
+    "taxa": 46
+  },
+  {
+    "site": "Sabaki",
+    "year": 2001,
+    "observations": 42,
+    "individuals": 16602,
+    "taxa": 42
+  },
+  {
+    "site": "Sabaki",
+    "year": 2004,
+    "observations": 398,
+    "individuals": 67840,
+    "taxa": 68
+  },
+  {
+    "site": "Sabaki",
+    "year": 2005,
+    "observations": 204,
+    "individuals": 98537,
+    "taxa": 60
+  },
+  {
+    "site": "Sabaki",
+    "year": 2006,
+    "observations": 49,
+    "individuals": 9969,
+    "taxa": 49
+  },
+  {
+    "site": "Sabaki",
+    "year": 2007,
+    "observations": 37,
+    "individuals": 6749,
+    "taxa": 37
+  },
+  {
+    "site": "Sabaki",
+    "year": 2008,
+    "observations": 47,
+    "individuals": 8313,
+    "taxa": 47
+  },
+  {
+    "site": "Sabaki",
+    "year": 2009,
+    "observations": 227,
+    "individuals": 26361,
+    "taxa": 63
+  },
+  {
+    "site": "Sabaki",
+    "year": 2010,
+    "observations": 310,
+    "individuals": 28170,
+    "taxa": 71
+  },
+  {
+    "site": "Sabaki",
+    "year": 2011,
+    "observations": 255,
+    "individuals": 26406,
+    "taxa": 68
+  },
+  {
+    "site": "Sabaki",
+    "year": 2012,
+    "observations": 235,
+    "individuals": 10783,
+    "taxa": 59
+  },
+  {
+    "site": "Sabaki",
+    "year": 2013,
+    "observations": 322,
+    "individuals": 21586,
+    "taxa": 69
+  },
+  {
+    "site": "Sabaki",
+    "year": 2014,
+    "observations": 385,
+    "individuals": 35660,
+    "taxa": 70
+  },
+  {
+    "site": "Sabaki",
+    "year": 2015,
+    "observations": 210,
+    "individuals": 29453,
+    "taxa": 54
+  },
+  {
+    "site": "Sabaki",
+    "year": 2016,
+    "observations": 81,
+    "individuals": 9036,
+    "taxa": 51
+  },
+  {
+    "site": "Sabaki",
+    "year": 2017,
+    "observations": 77,
+    "individuals": 6611,
+    "taxa": 47
+  },
+  {
+    "site": "Sabaki",
+    "year": 2018,
+    "observations": 311,
+    "individuals": 18330,
+    "taxa": 70
+  },
+  {
+    "site": "Sabaki",
+    "year": 2019,
+    "observations": 279,
+    "individuals": 18172,
+    "taxa": 76
+  },
+  {
+    "site": "Sabaki",
+    "year": 2020,
+    "observations": 381,
+    "individuals": 26754,
+    "taxa": 73
+  },
+  {
+    "site": "Sabaki",
+    "year": 2021,
+    "observations": 364,
+    "individuals": 51474,
+    "taxa": 68
+  },
+  {
+    "site": "Sabaki",
+    "year": 2022,
+    "observations": 408,
+    "individuals": 37089,
+    "taxa": 70
+  },
+  {
+    "site": "Sabaki",
+    "year": 2023,
+    "observations": 375,
+    "individuals": 47869,
+    "taxa": 60
+  },
+  {
+    "site": "Sabaki",
+    "year": 2024,
+    "observations": 359,
+    "individuals": 31316,
+    "taxa": 69
+  },
+  {
+    "site": "Sabaki",
+    "year": 2025,
+    "observations": 441,
+    "individuals": 45934,
+    "taxa": 74
+  },
+  {
+    "site": "Sabaki",
+    "year": 2026,
+    "observations": 157,
+    "individuals": 13678,
+    "taxa": 59
+  }
+]

@@ -1,0 +1,118 @@
+:root {
+  --site-sand: #f5f1e8;
+  --site-ink: #17352a;
+  --site-moss: #476a45;
+  --site-leaf: #91a564;
+  --site-line: #d8cfbf;
+  --site-card: rgba(255, 252, 246, 0.92);
+}
+
+body {
+  background: #f6f2ea;
+  color: var(--site-ink);
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(23, 53, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(23, 53, 42, 0.06);
+}
+
+.hero {
+  margin: 1rem 0 2rem;
+  padding: 2rem;
+  border: 1px solid var(--site-line);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(135deg, rgba(145, 165, 100, 0.16), rgba(255, 252, 246, 0.96)),
+    var(--site-card);
+  box-shadow: 0 18px 40px rgba(23, 53, 42, 0.08);
+}
+
+.hero h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.hero-link {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(23, 53, 42, 0.9);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hero-link:hover,
+.hero-link:focus {
+  background: var(--site-moss);
+  color: #fff;
+}
+
+.overview-grid,
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.overview-card,
+.link-card {
+  padding: 1rem;
+  border: 1px solid var(--site-line);
+  border-radius: 1rem;
+  background: var(--site-card);
+  box-shadow: 0 12px 28px rgba(23, 53, 42, 0.06);
+}
+
+.overview-card p:last-child {
+  margin-bottom: 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--site-moss);
+}
+
+.link-card h3 {
+  margin-top: 0;
+}
+
+.quarto-title-block .quarto-title-banner {
+  background: transparent;
+}
+
+main a {
+  color: var(--site-moss);
+}
+
+main a:hover,
+main a:focus {
+  color: #26482e;
+}
+
+table {
+  background: rgba(255, 252, 246, 0.92);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.35rem;
+  }
+
+  .hero-links {
+    flex-direction: column;
+  }
+
+  .hero-link {
+    text-align: center;
+  }
+}

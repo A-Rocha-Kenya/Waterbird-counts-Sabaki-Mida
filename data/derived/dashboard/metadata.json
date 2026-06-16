@@ -1,0 +1,46 @@
+{
+  "exportDate": "2026-06-16",
+  "siteUrl": "https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/",
+  "dashboardUrl": "https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/dashboard/",
+  "reportUrl": "https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/script/02_export_outputs.html",
+  "taxonomy": {
+    "source": "AviList",
+    "version": "2025",
+    "reference": "avilistr::avilist_2025"
+  },
+  "summaryCards": {
+    "events": 306,
+    "taxa": 121,
+    "observations": 9026,
+    "individuals": 1115076,
+    "firstDate": "1998-10-29",
+    "lastDate": "2026-05-11",
+    "sites": ["Mida Creek", "Sabaki"]
+  },
+  "rowCounts": {
+    "events": 306,
+    "occurrences": 9026,
+    "species": 121
+  },
+  "filters": {
+    "sites": ["Mida Creek", "Sabaki"],
+    "years": {
+      "min": 1998,
+      "max": 2026
+    },
+    "months": {
+      "Jan": 1,
+      "Feb": 2,
+      "Mar": 3,
+      "Apr": 4,
+      "May": 5,
+      "Jun": 6,
+      "Jul": 7,
+      "Aug": 8,
+      "Sep": 9,
+      "Oct": 10,
+      "Nov": 11,
+      "Dec": 12
+    }
+  }
+}

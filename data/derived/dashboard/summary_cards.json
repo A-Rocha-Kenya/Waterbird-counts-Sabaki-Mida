@@ -1,0 +1,9 @@
+{
+  "events": 306,
+  "taxa": 121,
+  "observations": 9026,
+  "individuals": 1115076,
+  "firstDate": "1998-10-29",
+  "lastDate": "2026-05-11",
+  "sites": ["Mida Creek", "Sabaki"]
+}

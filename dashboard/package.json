@@ -1,0 +1,21 @@
+{
+  "name": "waterbird-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "echarts": "^6.1.0",
+    "leaflet": "^1.9.4",
+    "vue": "^3.5.35",
+    "vue-router": "^5.0.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "vite": "^8.0.14"
+  }
+}
