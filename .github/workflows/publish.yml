@@ -49,6 +49,7 @@ jobs:
             any::cli
             any::glue
             any::scales
+            any::sf
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
