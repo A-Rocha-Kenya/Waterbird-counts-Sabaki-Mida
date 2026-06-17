@@ -109,6 +109,16 @@
           :metrics="currentAnnualMetrics"
           :option-builder="annualOptionBuilder"
         />
+
+        <ChartPanel
+          v-if="selectedSpecies"
+          v-model="seasonalMetricKey"
+          title="Seasonal trend"
+          :note="seasonalNote"
+          :rows="seasonalRows"
+          :metrics="currentSeasonalMetrics"
+          :option-builder="seasonalOptionBuilder"
+        />
       </section>
 
       <ChartPanel
@@ -144,6 +154,7 @@ const {
   closeSpeciesMenu,
   currentAnnualMetrics,
   currentHeatmapMetrics,
+  currentSeasonalMetrics,
   filteredSpeciesOptions,
   heatmapMetricKey,
   heatmapNote,
@@ -156,6 +167,10 @@ const {
   selectSpecies,
   selectedSites,
   selectedSpecies,
+  seasonalMetricKey,
+  seasonalNote,
+  seasonalOptionBuilder,
+  seasonalRows,
   siteOptions,
   speciesMenuOpen,
   speciesQuery,

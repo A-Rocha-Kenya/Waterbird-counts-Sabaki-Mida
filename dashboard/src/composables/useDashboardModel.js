@@ -1,5 +1,5 @@
 import { computed, ref, watch } from "vue";
-import { annualOption, heatmapOption, speciesRankingOption } from "../charts/unifiedCharts";
+import { annualOption, heatmapOption, seasonalOption, speciesRankingOption } from "../charts/unifiedCharts";
 import { formatNumber } from "../utils/formatters";
 
 const overviewMetrics = [
@@ -29,6 +29,7 @@ export function useDashboardModel(data) {
   const speciesMenuOpen = ref(false);
   const heatmapMetricKey = ref("individuals");
   const annualMetricKey = ref("events");
+  const seasonalMetricKey = ref("occurrences");
   const rankingMetricKey = ref("individuals");
 
   const siteOptions = computed(() => data.value?.metadata?.filters?.sites || []);
@@ -113,13 +114,16 @@ export function useDashboardModel(data) {
 
   const currentHeatmapMetrics = computed(() => selectedSpecies.value ? speciesMetrics : overviewMetrics);
   const currentAnnualMetrics = computed(() => selectedSpecies.value ? speciesMetrics : overviewMetrics);
+  const currentSeasonalMetrics = computed(() => speciesMetrics);
   const selectedHeatmapMetric = computed(() => findMetric(currentHeatmapMetrics.value, heatmapMetricKey.value));
   const selectedAnnualMetric = computed(() => findMetric(currentAnnualMetrics.value, annualMetricKey.value));
+  const selectedSeasonalMetric = computed(() => findMetric(currentSeasonalMetrics.value, seasonalMetricKey.value));
   const selectedRankingMetric = computed(() => findMetric(rankingMetrics, rankingMetricKey.value));
 
   watch(selectedSpecies, (species) => {
     heatmapMetricKey.value = species ? "occurrences" : "individuals";
     annualMetricKey.value = species ? "occurrences" : "events";
+    seasonalMetricKey.value = "occurrences";
   });
 
   const summaryCards = computed(() => {
@@ -161,6 +165,10 @@ export function useDashboardModel(data) {
     buildPeriodRows(selectedRows.value, filteredEvents.value, selectedAnnualMetric.value.key, "year")
   );
 
+  const seasonalRows = computed(() =>
+    buildPeriodRows(selectedRows.value, filteredEvents.value, selectedSeasonalMetric.value.key, "month", true)
+  );
+
   const rankingRows = computed(() =>
     buildRankingRows(joinedRows.value, selectedRankingMetric.value.key)
   );
@@ -175,6 +183,12 @@ export function useDashboardModel(data) {
     selectedSpecies.value
       ? `${selectedAnnualMetric.value.label} by year for ${selectedSpecies.value.displayLabel}.`
       : `${selectedAnnualMetric.value.label} by year across selected sites.`
+  );
+
+  const seasonalNote = computed(() =>
+    selectedSpecies.value
+      ? `${selectedSeasonalMetric.value.label} by month for ${selectedSpecies.value.displayLabel}.`
+      : ""
   );
 
   function clearSpecies() {
@@ -202,6 +216,7 @@ export function useDashboardModel(data) {
     closeSpeciesMenu,
     currentAnnualMetrics,
     currentHeatmapMetrics,
+    currentSeasonalMetrics,
     filteredSpeciesOptions,
     heatmapMetricKey,
     heatmapNote,
@@ -214,6 +229,10 @@ export function useDashboardModel(data) {
     selectSpecies,
     selectedSites,
     selectedSpecies,
+    seasonalMetricKey,
+    seasonalNote,
+    seasonalOptionBuilder: (rows) => seasonalOption(rows, selectedSeasonalMetric.value),
+    seasonalRows,
     siteOptions,
     speciesMenuOpen,
     speciesQuery,
@@ -284,7 +303,7 @@ function rankingMetricValue(row, metricKey) {
   return row[metricKey] || 0;
 }
 
-function buildPeriodRows(rows, events, metricKey, period) {
+function buildPeriodRows(rows, events, metricKey, period, fillAllMonths = false) {
   const rowGroups = new Map();
   const eventGroups = new Map();
 
@@ -317,7 +336,7 @@ function buildPeriodRows(rows, events, metricKey, period) {
     rowGroups.set(key, current);
   });
 
-  return Array.from(eventGroups.entries())
+  const periodRows = Array.from(eventGroups.entries())
     .map(([key, eventGroup]) => {
       const rowGroup = rowGroups.get(key);
       const eventsPresent = rowGroup?.eventIds.size || 0;
@@ -329,6 +348,15 @@ function buildPeriodRows(rows, events, metricKey, period) {
       };
     })
     .sort((a, b) => a.year - b.year || a.month - b.month);
+
+  if (!fillAllMonths || period !== "month") return periodRows;
+
+  const byMonth = new Map(periodRows.map((row) => [row.month, row]));
+  return Array.from({ length: 12 }, (_, index) => ({
+    year: 0,
+    month: index + 1,
+    value: byMonth.get(index + 1)?.value || 0
+  }));
 }
 
 function periodKey(row, period) {

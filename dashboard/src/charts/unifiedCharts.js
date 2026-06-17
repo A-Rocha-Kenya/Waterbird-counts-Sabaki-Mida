@@ -60,6 +60,29 @@ export function annualOption(rows, metric) {
   };
 }
 
+export function seasonalOption(rows, metric) {
+  const monthLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  return {
+    tooltip: {
+      trigger: "axis",
+      valueFormatter: (value) => formatValue(value, metric)
+    },
+    grid: { left: 56, right: 24, top: 24, bottom: 40 },
+    xAxis: { type: "category", data: monthLabels },
+    yAxis: { type: "value", name: metric.label },
+    series: [
+      {
+        type: metric.type || "bar",
+        smooth: metric.type !== "bar",
+        data: monthLabels.map((_, index) => rows.find((row) => row.month === index + 1)?.value || 0),
+        itemStyle: { color: "#2f6b3f" },
+        areaStyle: metric.type === "bar" ? undefined : { opacity: 0.08 }
+      }
+    ]
+  };
+}
+
 export function speciesRankingOption(rows, metric) {
   const visibleRows = rows.slice(0, 25).reverse();
 
