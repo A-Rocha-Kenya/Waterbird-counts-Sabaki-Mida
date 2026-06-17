@@ -6,8 +6,6 @@ format:
     toc: true
     toc-depth: 3
     number-sections: true
-    code-fold: true
-    code-summary: "Show code"
 execute:
   echo: true
   warning: false
@@ -21,13 +19,34 @@ source(here::here("R", "load_helper.R"))
 load_helper()
 data_objects <- load_data()
 list2env(data_objects, envir = knitr::knit_global())
+
+show_table_simple <- function(x, caption = NULL) {
+  knitr::kable(x, caption = caption)
+}
+
+show_check_simple <- function(x, ok = "No issues found.") {
+  if (nrow(x) == 0) {
+    cat(ok)
+  } else {
+    show_table_simple(x)
+  }
+}
 ```
 
 ## Introduction
 
-This document assembles the core quality checks used before publishing the waterbird count dataset for Sabaki River Mouth and Mida Creek.
+This document runs the main checks on the source spreadsheet before any Darwin Core export is created. The workflow is intentionally simple: each section creates one intermediate object, shows the result directly, and keeps the code visible on the page.
+
+The checks focus on a few practical questions:
+
+- Are event-level metadata fields consistent within each survey?
+- Are any counts or species names missing?
+- Do species names still match the local lookup and the AviList reference?
+- Are there duplicate records that should be excluded from export?
 
 ## Basic statistics
+
+This first step gives a compact summary of the current dataset by site and for the combined data. It is a quick way to confirm that the spreadsheet was read correctly before moving on to the detailed checks.
 
 ```{r basic-statistics}
 summary_table <- bind_rows(
@@ -43,17 +62,17 @@ summary_table <- bind_rows(
     .groups = "drop"
   )
 
-show_table(
+show_table_simple(
   summary_table,
-  caption = htmltools::tags$caption(
-    "Summary of surveys, taxa, observations, and individuals."
-  )
+  caption = "Summary of surveys, taxa, observations, and individuals."
 )
 ```
 
 ## Quality control
 
 ### Assessment 1: One metadata record per event
+
+Each survey event should have one consistent set of metadata such as start time, end time, coverage, method, and participants. This check groups records by `date` and `site` and flags events where one of these fields appears more than once.
 
 ```{r qc-event-metadata}
 event_metadata_check <- counts |>
@@ -72,18 +91,20 @@ event_metadata_check <- counts |>
   ) |>
   filter(if_any(starts_with("n_"), ~ .x > 1))
 
-show_check(event_metadata_check)
+show_check_simple(event_metadata_check)
 ```
 
 ### Assessment 2: Missing species name or count
+
+The occurrence export needs both a species label and a count. This section separately checks for missing `count` values and missing `common_name` values so the source spreadsheet can be corrected before export.
 
 ```{r qc-missing-values}
 missing_count_check <- counts |> filter(is.na(count))
 missing_name_check <- counts |> filter(is.na(common_name))
 
-show_check(missing_count_check, "No missing counts found.")
+show_check_simple(missing_count_check, "No missing counts found.")
 cat("\n\n")
-show_check(missing_name_check, "No missing species names found.")
+show_check_simple(missing_name_check, "No missing species names found.")
 
 stop_if_issues(
   missing_count_check,
@@ -104,6 +125,8 @@ stop_if_issues(
 
 ### Assessment 3: Species name matches the lookup table
 
+The raw spreadsheet uses common names, while the export attaches scientific names and taxon IDs through a lookup table. This check lists any common names that do not join to that lookup.
+
 ```{r qc-species-match}
 species_lookup_check <- counts |>
   distinct(common_name) |>
@@ -113,7 +136,7 @@ species_lookup_check <- counts |>
   left_join(species_lookup, by = "common_name_key") |>
   filter(is.na(scientific_name))
 
-show_check(species_lookup_check)
+show_check_simple(species_lookup_check)
 
 stop_if_issues(
   species_lookup_check,
@@ -124,8 +147,9 @@ stop_if_issues(
 )
 ```
 
-
 ### Assessment 4: Taxon IDs match the avilistr reference list
+
+After the local species lookup has been joined, the next step is to confirm that the taxon identifiers still match the AviList reference used in the export script.
 
 ```{r qc-avilistr-taxon-id}
 taxon_id_check <- counts |>
@@ -135,20 +159,24 @@ taxon_id_check <- counts |>
   filter(!is.na(taxon_id)) |>
   anti_join(avilist_lookup, by = "taxon_id")
 
-show_check(taxon_id_check)
+show_check_simple(taxon_id_check)
 ```
 
 ### Assessment 5: Duplicate taxon records within one event
+
+The export expects one count per taxon within a survey event. This check finds repeated `date + site + common_name` combinations so they can be reviewed before publication.
 
 ```{r qc-duplicate-observations}
 duplicate_observation_check <- counts |>
   count(date, site, common_name, name = "n_observation") |>
   filter(n_observation > 1)
 
-show_check(duplicate_observation_check)
+show_check_simple(duplicate_observation_check)
 ```
 
 ## Records excluded from the export
+
+This final table combines the records that would currently be excluded from export because they are incomplete or duplicated. It provides a short list of rows to fix in the source spreadsheet.
 
 ```{r export-subset}
 excluded_missing_count <- counts |>
@@ -176,10 +204,8 @@ excluded_export_records <- bind_rows(
 ) |>
   distinct()
 
-show_table(
+show_table_simple(
   excluded_export_records,
-  caption = htmltools::tags$caption(
-    "Records temporarily excluded from the Darwin Core export."
-  )
+  caption = "Records temporarily excluded from the Darwin Core export."
 )
 ```

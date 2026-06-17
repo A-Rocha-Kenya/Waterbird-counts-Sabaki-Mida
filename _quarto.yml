@@ -33,7 +33,7 @@ website:
         href: "https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida"
   page-footer:
     left: "A Rocha Kenya long-term waterbird monitoring dataset."
-    right: "[GBIF dataset](https://doi.org/10.15468/9hs9vv) · [Export script](script/02_export_outputs.html)"
+    right: "[GBIF dataset](https://doi.org/10.15468/9hs9vv)"
 
 format:
   html:

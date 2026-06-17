@@ -3,6 +3,7 @@ import { ref } from "vue";
 const dashboardData = ref(null);
 const dashboardError = ref(null);
 const dashboardLoading = ref(false);
+const dashboardFiles = ["events.json", "occurrences.json", "species_lookup.json", "metadata.json"];
 
 async function fetchJson(file) {
   const response = await fetch(`${import.meta.env.BASE_URL}${file}`);
@@ -18,34 +19,14 @@ export function useDashboardData() {
     dashboardError.value = null;
 
     try {
-      const [
-        events,
-        occurrences,
-        speciesLookup,
-        summaryCards,
-        seriesYearSite,
-        seriesMonthSite,
-        speciesRankings,
-        metadata
-      ] = await Promise.all([
-        fetchJson("events.json"),
-        fetchJson("occurrences.json"),
-        fetchJson("species_lookup.json"),
-        fetchJson("summary_cards.json"),
-        fetchJson("series_year_site.json"),
-        fetchJson("series_month_site.json"),
-        fetchJson("species_rankings.json"),
-        fetchJson("metadata.json")
-      ]);
+      const [events, occurrences, speciesLookup, metadata] = await Promise.all(
+        dashboardFiles.map(fetchJson)
+      );
 
       dashboardData.value = {
         events,
         occurrences,
         speciesLookup,
-        summaryCards,
-        seriesYearSite,
-        seriesMonthSite,
-        speciesRankings,
         metadata
       };
     } catch (error) {

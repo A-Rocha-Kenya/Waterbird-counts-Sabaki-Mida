@@ -155,8 +155,6 @@ export_dwc <- function(
       decimalLatitude = latitude,
       decimalLongitude = longitude,
       geodeticDatum = "WGS84",
-      footprintWKT = counting_area,
-      footprintSRS = "EPSG:4326",
       dynamicProperties = pmap_chr(
         list(method, water, tidal, weather, disturbed, coverage, participants),
         \(method, water, tidal, weather, disturbed, coverage, participants) {
@@ -247,7 +245,6 @@ export_dwc <- function(
       county,
       decimalLatitude,
       decimalLongitude,
-      footprintWKT,
       samplingMinutes,
       samplingEffort,
       eventTime,

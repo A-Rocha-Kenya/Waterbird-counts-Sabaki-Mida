@@ -81,7 +81,7 @@
       <positionName>Director</positionName>
       <userId directory="http://orcid.org/">0000-0003-2280-1397</userId>
     </metadataProvider>
-    <pubDate>2026-06-16</pubDate>
+    <pubDate>2026-06-17</pubDate>
     <language>ENGLISH</language>
     <abstract>
       <para>Since 2000, A Rocha Kenya has been monitoring waterbirds on a regular basis at two key sites on the coast of Kenya: Sabaki River Mouth (3°10'03.4"S 40°08'41.7"E) and Mida Creek (3°20'07.2"S 39°58'26.4"E).</para>
@@ -90,7 +90,7 @@
       <para>This dataset is published as a Darwin Core Archive using a sampling event dataset type.</para>
       <para>The metadata and data are generated from the field spreadsheet with two Quarto scripts: script/01_data_checks.qmd checks the source data, and script/02_export_outputs.qmd exports the Darwin Core files, EML metadata, and dashboard JSON files.</para>
       <para>The repository is available at https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/ and the project website is available at https://a-rocha-kenya.github.io/Waterbird-counts-Sabaki-Mida/.</para>
-      <para>Event table fields: eventID, samplingProtocol, sampleSizeValue, sampleSizeUnit, samplingEffort, eventDate, eventTime, locationID, continent, country, countryCode, county, locality, decimalLatitude, decimalLongitude, geodeticDatum, footprintWKT, footprintSRS, dynamicProperties.</para>
+      <para>Event table fields: eventID, samplingProtocol, sampleSizeValue, sampleSizeUnit, samplingEffort, eventDate, eventTime, locationID, continent, country, countryCode, county, locality, decimalLatitude, decimalLongitude, geodeticDatum, dynamicProperties.</para>
       <para>Occurrence table fields: basisOfRecord, eventID, occurrenceID, individualCount, taxonID, scientificName, scientificNameAuthorship, kingdom, phylum, class, order, family, genus, taxonRank, vernacularName, occurrenceRemarks.</para>
       <para>The counts are organized by A Rocha Kenya. The list of participants in the surveys is incomplete and includes staff members, scribes, and volunteers who contributed to the long-term monitoring effort.</para>
     </abstract>
@@ -359,7 +359,7 @@ The taxonomy follows AviList 2025 through the avilistr reference list (avilistr:
   <additionalMetadata>
     <metadata>
       <gbif>
-        <dateStamp>2026-06-16T00:00:00+02:00</dateStamp>
+        <dateStamp>2026-06-17T00:00:00+02:00</dateStamp>
         <hierarchyLevel>dataset</hierarchyLevel>
         <citation>Nussbaumer R, Lennox K, Baya A, Gijsbertsen J, Kinzer A, Jackson C (2026): Waterbird Counts at Sabaki River Mouth and Mida Creek. A Rocha Kenya. Dataset/SamplingEvent. https://doi.org/10.15468/9hs9vv</citation>
         <bibliography>

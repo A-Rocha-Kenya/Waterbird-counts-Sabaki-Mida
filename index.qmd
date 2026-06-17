@@ -7,7 +7,10 @@ page-layout: full
 library(xml2)
 library(jsonlite)
 
-eml_lines <- readLines("data/derived/dwc/eml-waterbird_counts_sabaki_mida.xml", warn = FALSE)
+eml_lines <- readLines(
+  "data/derived/dwc/eml-waterbird_counts_sabaki_mida.xml",
+  warn = FALSE
+)
 eml_lines <- gsub(
   "&(?!(amp;|lt;|gt;|quot;|apos;|#))",
   "&amp;",
@@ -15,34 +18,12 @@ eml_lines <- gsub(
   perl = TRUE
 )
 eml <- read_xml(paste(eml_lines, collapse = "\n"))
-title_text <- xml_text(xml_find_first(
-  eml,
-  "//*[local-name()='dataset']/*[local-name()='title']"
-))
-creator_nodes <- xml_find_all(
-  eml,
-  "//*[local-name()='dataset']/*[local-name()='creator']"
-)
-creators <- vapply(
-  creator_nodes,
-  function(node) {
-    given <- xml_text(xml_find_first(node, ".//*[local-name()='givenName']"))
-    sur <- xml_text(xml_find_first(node, ".//*[local-name()='surName']"))
-    paste(given, sur)
-  },
-  character(1)
-)
-
 abstract_paras <- xml_find_all(
   eml,
   "//*[local-name()='dataset']/*[local-name()='abstract']/*[local-name()='para']"
 ) |>
   xml_text()
 
-pub_date <- xml_text(xml_find_first(
-  eml,
-  "//*[local-name()='dataset']/*[local-name()='pubDate']"
-))
 doi_url <- xml_find_all(
   eml,
   "//*[local-name()='dataset']/*[local-name()='alternateIdentifier']"
@@ -58,10 +39,15 @@ end_date <- xml_text(xml_find_first(
   eml,
   "//*[local-name()='endDate']/*[local-name()='calendarDate']"
 ))
-west <- xml_text(xml_find_first(eml, "//*[local-name()='westBoundingCoordinate']"))
-east <- xml_text(xml_find_first(eml, "//*[local-name()='eastBoundingCoordinate']"))
-north <- xml_text(xml_find_first(eml, "//*[local-name()='northBoundingCoordinate']"))
-south <- xml_text(xml_find_first(eml, "//*[local-name()='southBoundingCoordinate']"))
+citation_text <- xml_text(xml_find_first(
+  eml,
+  "//*[local-name()='additionalMetadata']//*[local-name()='gbif']/*[local-name()='citation']"
+))
+coverage_years <- paste(
+  format(as.Date(begin_date), "%Y"),
+  format(as.Date(end_date), "%Y"),
+  sep = " to "
+)
 
 latest_events <- list.files(
   "data/derived/dwc",
@@ -75,24 +61,24 @@ latest_occurrences <- list.files(
   pattern = "^occurrences_\\d{4}-\\d{2}-\\d{2}\\.csv$",
   full.names = FALSE
 )
-latest_occurrences <- latest_occurrences[order(latest_occurrences, decreasing = TRUE)][1]
+latest_occurrences <- latest_occurrences[order(
+  latest_occurrences,
+  decreasing = TRUE
+)][1]
 
 summary_cards <- jsonlite::fromJSON("data/derived/dashboard/summary_cards.json")
 ```
 
 ::: {.hero}
-# `r title_text`
-
-Long-term waterbird monitoring data from Sabaki River Mouth and Mida Creek, maintained by A Rocha Kenya. This page is the entry point; the numbered scripts contain the executable data checks and export steps.
+`r abstract_paras[1]`
 
 ```{r, results="asis"}
 cat(
   paste0(
     '<div class="hero-links">',
-    '<a class="hero-link" href="', doi_url, '">GBIF DOI</a>',
-    '<a class="hero-link" href="dashboard/">Interactive dashboard</a>',
-    '<a class="hero-link" href="script/01_data_checks.html">01 Data checks</a>',
-    '<a class="hero-link" href="script/02_export_outputs.html">02 Export outputs</a>',
+    '<a class="hero-link" href="',
+    doi_url,
+    '">View on GBIF</a>',
     '</div>'
   )
 )
@@ -103,7 +89,7 @@ cat(
 ::: {.overview-card}
 **Coverage**
 
-`r begin_date` to `r end_date`
+`r coverage_years`
 :::
 
 ::: {.overview-card}
@@ -125,54 +111,30 @@ cat(
 :::
 :::
 
-## Use the Dataset
+## How is the data collected?
 
-::: {.link-grid}
-::: {.link-card}
-### Explore
+1. [Fieldnote](assets/Notebook_Instruction.pdf)
+   The observers record species, counts, timing, and field conditions in the notebook during each survey.
+2. [Entering in Excel](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/blob/master/data/raw/water_bird_count_data.xlsx)
+   The field notes are transcribed into the master spreadsheet that stores the long-term dataset.
+3. [Data validation check](script/01_data_checks.html)
+   The Quarto checks look for missing values, inconsistent event metadata, lookup mismatches, and duplicates.
+4. [Export to Darwin Core](script/02_export_outputs.html)
+   The cleaned spreadsheet is converted into publication-ready Darwin Core, EML, and dashboard files.
 
-[Open the dashboard](dashboard/) for filtering by site, year, month, and taxon.
-:::
+## How to use the data?
 
-::: {.link-card}
-### Verify
+- [Use the Excel file](https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/blob/master/data/raw/water_bird_count_data.xlsx)
+  This is the most direct version of the source data for inspection and manual reuse.
+- [Use the events CSV](data/derived/dwc/`r latest_events`)
+  This file contains one row per survey event with dates, sites, timing, and event-level metadata.
+- [Use the occurrence CSV](data/derived/dwc/`r latest_occurrences`)
+  This file contains one row per taxon record linked to survey events through `eventID`.
+- [Use the Darwin Core Archive on GBIF](`r doi_url`)
+  This is the published version of the dataset with metadata and standard biodiversity packaging.
 
-[Review the data checks script](script/01_data_checks.html) before using the export tables.
-:::
+## Citation
 
-::: {.link-card}
-### Reproduce
+Please cite the dataset as:
 
-[Read the export script](script/02_export_outputs.html) to see how Darwin Core files, dashboard JSON, and EML fields are generated.
-:::
-:::
-
-## Current Export
-
-The current metadata record was refreshed on `r pub_date`. The latest Darwin Core files are:
-
-```{r, results="asis"}
-cat(
-  paste(
-    c(
-      paste0("- [Events table](data/derived/dwc/", latest_events, ")"),
-      paste0("- [Occurrences table](data/derived/dwc/", latest_occurrences, ")"),
-      "- [EML metadata](data/derived/dwc/eml-waterbird_counts_sabaki_mida.xml)",
-      "- [Field notebook instructions](assets/Notebook_Instruction.pdf)"
-    ),
-    collapse = "\n"
-  )
-)
-```
-
-## Metadata Source
-
-The homepage title, creators, abstract summary, DOI, publication date, temporal coverage, and bounding box are read from the generated EML XML file in `data/derived/dwc/`.
-
-**Creators:** `r paste(creators, collapse = ", ")`
-
-**Bounding box:** `r south` to `r north` latitude; `r west` to `r east` longitude.
-
-```{r, results="asis"}
-cat(abstract_paras[1])
-```
+> `r citation_text`

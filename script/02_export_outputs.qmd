@@ -6,8 +6,6 @@ format:
     toc: true
     toc-depth: 3
     number-sections: true
-    code-fold: true
-    code-summary: "Show code"
 execute:
   echo: true
   warning: false
@@ -26,107 +24,57 @@ dwc_objects <- export_dwc(data_objects)
 
 list2env(data_objects, envir = knitr::knit_global())
 list2env(dwc_objects, envir = knitr::knit_global())
+
+github_base_url <- "https://github.com/A-Rocha-Kenya/Waterbird-counts-Sabaki-Mida/blob/master"
+events_github_url <- paste0(github_base_url, "/data/derived/dwc/events_", export_date, ".csv")
+occurrences_github_url <- paste0(github_base_url, "/data/derived/dwc/occurrences_", export_date, ".csv")
+xml_github_url <- paste0(github_base_url, "/data/derived/dwc/eml-waterbird_counts_sabaki_mida.xml")
 ```
+
+## Introduction
+
+This document writes the derived files used for publication and for the website. The code stays visible so the full export can be read from top to bottom without opening other files.
+
+The export has two parts:
+
+- Darwin Core files for publication through GBIF
+- JSON files used by the dashboard on the project website
 
 ## Export DWC
 
 ### Export event and occurrence tables
 
+This chunk writes the two main Darwin Core CSV files. The event table contains one row per survey event, while the occurrence table contains one row per taxon count linked back to its event with `eventID`.
+
+The files written by this step are:
+
+- [Event CSV on GitHub](`r events_github_url`)
+- [Occurrence CSV on GitHub](`r occurrences_github_url`)
+
 ```{r export-dwc-csv}
 dwc_csv_files <- export_dwc_csv(dwc_objects)
-
-tibble::tibble(
-  output = names(dwc_csv_files),
-  file = unname(dwc_csv_files)
-) |>
-  show_table(
-    caption = htmltools::tags$caption(
-      "Darwin Core CSV files written by the workflow."
-    )
-  )
 ```
 
-```{r preview-events}
-show_table(
-  events |> head(),
-  caption = htmltools::tags$caption("Preview of the Darwin Core event table.")
-)
-```
-
-```{r preview-occurrences}
-show_table(
-  occurrences |> head(),
-  caption = htmltools::tags$caption(
-    "Preview of the Darwin Core occurrence table."
-  )
-)
-```
+The event export is built from survey-level metadata such as date, site, timing, coordinates, and count coverage. The occurrence export then joins the bird records to the species lookup and AviList reference so the published file has the expected taxonomic fields.
 
 ### Export metadata
 
+This chunk writes the EML metadata file that accompanies the Darwin Core tables. The XML is generated from the template in `data/raw/`, then refreshed with the current publication date, summary numbers, coverage dates, taxonomic summary, and field lists from the newly created export objects.
+
+- [EML XML file on GitHub](`r xml_github_url`)
+
 ```{r export-dwc-eml}
 dwc_eml_file <- export_dwc_eml(data_objects, dwc_objects)
-
-tibble::tibble(
-  output = "eml",
-  file = dwc_eml_file
-) |>
-  show_table(
-    caption = htmltools::tags$caption("Generated EML metadata file.")
-  )
 ```
 
-```{r metadata-summary}
-metadata_summary <- tibble::tibble(
-  field = c(
-    "Publication date",
-    "Temporal range",
-    "Bounding box",
-    "Combined surveys",
-    "Combined taxa",
-    "Combined observations",
-    "Combined individuals"
-  ),
-  value = c(
-    as.character(export_date),
-    paste(dataset_summary$first_date, "to", dataset_summary$last_date),
-    paste(
-      "Lat",
-      bounding_box$south,
-      "to",
-      bounding_box$north,
-      "| Lon",
-      bounding_box$west,
-      "to",
-      bounding_box$east
-    ),
-    dataset_summary$n_survey_combined,
-    dataset_summary$n_taxon_combined,
-    dataset_summary$n_observation_combined,
-    scales::comma(dataset_summary$n_individual_combined)
-  )
-)
-
-show_table(
-  metadata_summary,
-  caption = htmltools::tags$caption(
-    "Fields refreshed in the generated EML metadata."
-  )
-)
-```
+The resulting XML is the metadata record used for the dataset landing page and for publication through GBIF.
 
 ## Export dashboard
 
+The final step writes the JSON files used by the website dashboard. These files reorganize the event, occurrence, species lookup, and summary data into a format that can be loaded directly by the Vue app.
+
 ```{r export-dashboard-json}
 dashboard_files <- export_dashboard_json(dwc_objects)
-
-tibble::tibble(
-  output = names(dashboard_files),
-  file = unname(dashboard_files)
-) |>
-  show_table(
-    caption = htmltools::tags$caption(
-      "Dashboard JSON files written by the workflow."
-    )
-  )
 ```
+
+This keeps the dashboard separate from the Darwin Core publication files while still deriving both outputs from the same checked source spreadsheet.
